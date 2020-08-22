@@ -1,10 +1,10 @@
-# настройки линтера
-.jshintrc.js
-/src/.jshintrc.js
+# enviroment variables
+.env
 
-# ключ авторизации, захардкоденный
-.key.txt
+# Optional REPL history
+.DS_Store
+.idea
 
-# папки
-/node_modules
-/dist
+# Dependency directory
+node_modules
+dist
