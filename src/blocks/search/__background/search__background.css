@@ -1,0 +1,11 @@
+.search__background {
+    background-image: url(../../../images/background-pic.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    position: absolute;
+    margin-top: -80px;
+    z-index: -1;
+    width: 100%;
+    height: 576px;
+}

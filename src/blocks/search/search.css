@@ -1,0 +1,5 @@
+@import url(./__background/search__background.css);
+.search {
+    max-height: 496px;
+    height: 496px;
+}

@@ -1,0 +1,11 @@
+@import url(_current/menu__page_current.css);
+.menu__page {
+    list-style: none;
+    margin: 0 34px 0 0;
+    padding-top: 2px;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #B6BCBF;
+}

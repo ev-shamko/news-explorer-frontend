@@ -1,0 +1,5 @@
+li.menu__page_current {
+    border-bottom: 3px solid white;
+    margin-top: 3px;
+    color: white;
+}

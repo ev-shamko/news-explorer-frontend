@@ -8,4 +8,4 @@
 #
 node_modules
 dist
-/src/figma
+src/figma/

@@ -1,0 +1,13 @@
+.menu__auth-button {
+    border: 1px solid white;
+    border-radius: 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin: 17px 0px 13px 0px;
+    padding: 12px 19px;
+    cursor: pointer;
+}

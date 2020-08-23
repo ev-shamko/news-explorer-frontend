@@ -1,3 +1,12 @@
+@import url(../vendor/fonts.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/search/search.css);
+@import url(../blocks/menu/menu.css);
 body {
     background-color: bisque;
+    margin: 0px;
+}
+
+a {
+    color: inherit;
 }

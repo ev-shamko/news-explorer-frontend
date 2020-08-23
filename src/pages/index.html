@@ -1,15 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", user-scalabe="no">
-    <meta>
-    <title>Some title</title>
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta>
+  <title>News Explorer</title>
+  <link rel="shortcut icon" href="./images/favicon.ico">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
 </head>
+
 <body>
-    <h1>Index.html</h1>
-<a href="./articles.html">Ссылка на другую страницу</a>
-<script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+  <div class="root">
+    <header class="header">
+      <div class="header__container">
+        <a class="header__logo">NewsExplorer</a>
+        <nav class="header__menu-container menu">
+          <ul class="menu__pages-container">
+            <li class="menu__page menu__page_current"><a href="/index.html">Главная</a></li>
+            <li class="menu__page"><a href="./articles.html">Сохранённые статьи</a></li>
+          </ul>
+          <button class="menu__auth-button">
+            <span class="menu__username">Грета</span>
+            <img class="menu__logout-icon" src="<%=require('../images/logout-white.png')%>" alt="">
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="search">
+        <div class="search__background">
+
+        </div>
+
+      </section>
+    </main>
+    <footer>
+      <a href="./articles.html">Ссылка на сохранённые страницы</a>
+    </footer>
+
+    <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+  </div>
 </body>
 </html>
