@@ -7,7 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta>
   <title>News Explorer</title>
-  <link rel="shortcut icon" href="./images/favicon.ico">
+  <link rel="
+  icon" href="<%=require('../images/favicon.ico')%>">
   <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css %>">
 </head>
 
@@ -30,8 +31,14 @@
     </header>
     <main>
       <section class="search">
-        <div class="search__background">
-
+        <div class="search__background"></div>
+        <div class="search__container">
+          <h3 class="search__title">Что в мире творится?</h3>
+          <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём&nbspличном&nbspкабинете.</p>
+          <div class="search__field">
+            <input class="search__input" name="searchinput" placeholder="Введите тему новости">
+            <button class="search__button">Искать</button>
+          </div>
         </div>
 
       </section>
