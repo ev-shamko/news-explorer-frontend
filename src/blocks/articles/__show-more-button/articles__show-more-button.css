@@ -1,0 +1,27 @@
+.articles__show-more-button {
+    background: #FFFFFF;
+    border-radius: 80px;
+    color: #1A1B22;
+    border: none;
+    cursor: pointer;
+
+    display: block;
+    margin: 0px auto;
+    width: 288px;
+    height: 64px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+
+    /*
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding: 19px 84px;
+
+    Так тоже можно, но удобнее через width+height
+    */
+}

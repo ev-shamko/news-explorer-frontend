@@ -1,0 +1,9 @@
+.about__content {
+    max-width: 1120px;
+    margin: 0px auto;
+
+    display: flex;
+    justify-content: flex-start;
+
+    /*outline: 1px solid #da8301;*/
+}

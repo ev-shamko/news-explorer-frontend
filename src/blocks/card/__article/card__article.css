@@ -1,6 +1,7 @@
 .card__article {
-    background-color: floralwhite;
     max-height: 230px;
     overflow: hidden; /* Обрезаем содержимое */
     text-overflow: ellipsis;
+
+    /*background-color: floralwhite;*/
 }

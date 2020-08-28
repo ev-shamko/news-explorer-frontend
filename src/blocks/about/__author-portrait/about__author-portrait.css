@@ -1,0 +1,10 @@
+.about__author-portrait {
+    margin-right: 56px;
+    min-width: 464px;
+    height: 464px;
+    /* Здесь нужно подумать, у какого конкретно блока min/max/просто width/heigth и кто влияет на чью ширину в итоге */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+}

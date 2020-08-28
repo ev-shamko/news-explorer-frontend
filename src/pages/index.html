@@ -24,7 +24,8 @@
           </ul>
           <button class="menu__auth-button">
             <span class="menu__username">Грета</span>
-            <img class="menu__logout-icon" src="<%=require('../images/logout-white.png')%>" alt="">
+            <img class="menu__logout-icon" src="<%=require('../images/logout-white.png')%>"
+                 alt="Кнопка для выхода из сервиса">
           </button>
         </nav>
       </div>
@@ -47,9 +48,12 @@
           <h2 class="title">Результаты поиска</h2>
           <div class="articles__container">
             <div class="card">
-              <div class="card__illustration">
+              <div class="card__illustration" style="background-image: url('<%= require(`../images/card-image-1.jpg`) %>')">
                 <div class="card__button-container">
-                  <button class="card__button"></button>
+                  <button class="card__button">
+                    <img class="card__button-icon" src="<%=require('../images/save-flag.svg')%>"
+                         alt="Кнопка для добавления статьи в избранное">
+                  </button>
                   <div class="card__message-container">
                     <span class="card__message">Войдите, чтобы сохранять статьи</span>
                   </div>
@@ -67,9 +71,12 @@
               </div>
             </div>
             <div class="card">
-              <div class="card__illustration">
+              <div class="card__illustration" style="background-image: url('<%= require(`../images/card-image-2.jpg`) %>')">
                 <div class="card__button-container">
-                  <button class="card__button"></button>
+                  <button class="card__button">
+                    <img class="card__button-icon" src="<%=require('../images/save-flag.svg')%>"
+                         alt="Кнопка для выхода из сервиса">
+                  </button>
                   <div class="card__message-container">
                     <span class="card__message">Войдите, чтобы сохранять статьи</span>
                   </div>
@@ -87,9 +94,12 @@
               </div>
             </div>
             <div class="card">
-              <div class="card__illustration">
+              <div class="card__illustration" style="background-image: url('<%= require(`../images/card-image-3.jpg`) %>')">
                 <div class="card__button-container">
-                  <button class="card__button"></button>
+                  <button class="card__button">
+                    <img class="card__button-icon" src="<%=require('../images/save-flag.svg')%>"
+                         alt="Кнопка для выхода из сервиса">
+                  </button>
                   <div class="card__message-container">
                     <span class="card__message">Войдите, чтобы сохранять статьи</span>
                   </div>
@@ -106,9 +116,12 @@
               </div>
             </div>
             <div class="card">
-              <div class="card__illustration">
+              <div class="card__illustration" style="background-image: url('<%= require(`../images/card-image-1.jpg`) %>')">
                 <div class="card__button-container">
-                  <button class="card__button"></button>
+                  <button class="card__button">
+                    <img class="card__button-icon" src="<%=require('../images/save-flag.svg')%>"
+                         alt="Кнопка для выхода из сервиса">
+                  </button>
                   <div class="card__message-container">
                     <span class="card__message">Войдите, чтобы сохранять статьи</span>
                   </div>
@@ -126,9 +139,12 @@
               </div>
             </div>
             <div class="card">
-              <div class="card__illustration">
+              <div class="card__illustration" style="background-image: url('<%= require(`../images/card-image-2.jpg`) %>')">
                 <div class="card__button-container">
-                  <button class="card__button"></button>
+                  <button class="card__button">
+                    <img class="card__button-icon" src="<%=require('../images/save-flag.svg')%>"
+                         alt="Кнопка для выхода из сервиса">
+                  </button>
                   <div class="card__message-container">
                     <span class="card__message">Войдите, чтобы сохранять статьи</span>
                   </div>
@@ -145,6 +161,19 @@
                 <p class="card__source">Медуза</p>
               </div>
             </div>
+          </div>
+        </div>
+        <button class="articles__show-more-button">Показать ещё</button>
+      </section>
+      <section class="about">
+        <div class="about__content">
+          <div class="about__author-portrait" style="background-image: url('<%= require(`../images/auth-portrait.jpg`) %>')")></div>
+          <div class="about__text-area">
+            <h3 class="about__header">Об авторе</h3>
+            <p class="about__description">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем
+              вы занимаетесь, какими технологиями разработки владеете.</p>
+            <p class="about__description">Также можно рассказать о процессе обучения в Практикуме, чему вы тут
+              научились, и чем можете помочь потенциальным заказчикам.</p>
           </div>
         </div>
       </section>

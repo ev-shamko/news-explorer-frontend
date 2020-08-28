@@ -1,0 +1,9 @@
+@import url(__content/about__content.css);
+@import url(__author-portrait/about__author-portrait.css);
+@import url(__text-area/about__text-area.css);
+@import url(__header/about__header.css);
+@import url(__description/about__description.css);
+.about {
+    background-color: #FFFFFF;
+    padding: 80px 0;
+}

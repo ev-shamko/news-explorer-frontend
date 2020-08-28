@@ -9,19 +9,21 @@
 @import url(__article/card__article.css);
 @import url(__message-container/card__message-container.css);
 @import url(__message/card__message.css);
+@import url(__button-icon/card__button-icon.css);
 
 .card {
     width: 400px;
     height: 576px;
-
     border-radius: 15px;
 
-    /*background-color: #FFFFFF;*/
-    background-color: blue;
-
-    /*outline: cadetblue 1px solid;*/
+    background-color: #FFFFFF;
 
     /*
+    background-color: blue;
+
+    outline: cadetblue 1px solid;
+
+
     display: flex;
     flex-direction: column;*/
 }
