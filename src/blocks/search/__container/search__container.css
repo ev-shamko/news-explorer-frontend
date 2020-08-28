@@ -1,6 +1,7 @@
 .search__container {
     max-width: 608px;
     margin: 0 auto;
+    padding-top: 80px;
 
     display: flex;
     flex-direction: column;

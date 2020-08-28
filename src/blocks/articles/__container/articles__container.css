@@ -1,0 +1,8 @@
+.articles__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,400px);
+    grid-template-rows: repeat(auto-fill,576px);
+    column-gap: 16px;
+    row-gap: 16px;
+    justify-content: center;
+}

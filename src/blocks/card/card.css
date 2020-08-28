@@ -1,0 +1,27 @@
+@import url(__illustration/card__illustration.css);
+@import url(__button-container/card__button-container.css);
+@import url(__button/card__button.css);
+@import url(__content/card__content.css);
+@import url(__date/card__date.css);
+@import url(__header/card__header.css);
+@import url(__text/card__text.css);
+@import url(__source/card__source.css);
+@import url(__article/card__article.css);
+@import url(__message-container/card__message-container.css);
+@import url(__message/card__message.css);
+
+.card {
+    width: 400px;
+    height: 576px;
+
+    border-radius: 15px;
+
+    /*background-color: #FFFFFF;*/
+    background-color: blue;
+
+    /*outline: cadetblue 1px solid;*/
+
+    /*
+    display: flex;
+    flex-direction: column;*/
+}

@@ -7,7 +7,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    color: #b6bcbf;
+    color: #1A1B22;
 
     background: #FFFFFF;
     border: 1px solid #D1D2D6;
@@ -18,4 +18,8 @@
     padding-left: 19px;
 
     outline: none
+}
+
+.search__input::placeholder {
+    color: #B6BCBF;
 }

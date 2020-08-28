@@ -1,0 +1,9 @@
+.card__illustration {
+    width: 100%;
+    height: 272px;
+    background-color: lightslategray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+}

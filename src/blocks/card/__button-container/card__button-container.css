@@ -1,0 +1,13 @@
+.card__button-container {
+    position: relative;
+    top: 24px;
+    right: 24px;
+    border: none;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    height: min-content;
+
+    outline: 1px solid #da8301
+}

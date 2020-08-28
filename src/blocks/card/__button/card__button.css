@@ -1,0 +1,13 @@
+.card__button {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+
+    border-radius: 8px;
+    background-color: white;
+    border: none;
+    /*position: relative;
+    top: 24px;
+    right: 24px;
+    */
+}
