@@ -11,5 +11,5 @@
 .card__button:hover + .card__message-container {
     display: flex;
     opacity: 1;
-    transition: all .4s;
+    transition: all .3s ease-in;
 }

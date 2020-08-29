@@ -1,3 +1,4 @@
+@import url(_footer/menu__pages-container_footer.css);
 .menu__pages-container {
     display: flex;
     flex-direction: row;
