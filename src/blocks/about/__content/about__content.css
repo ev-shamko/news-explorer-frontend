@@ -1,6 +1,7 @@
 .about__content {
     max-width: 1120px;
     margin: 0px auto;
+    padding-right: 109px;
 
     display: flex;
     justify-content: flex-start;

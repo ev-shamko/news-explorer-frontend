@@ -1,0 +1,8 @@
+.footer__content {
+    max-width: 1232px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    height: inherit;
+}

@@ -1,0 +1,7 @@
+@import url(__content/footer__content.css);
+@import url(__copyrigth/footer__copyrigth.css);
+@import url(__menu-container/footer__menu-container.css);
+.footer {
+    height: 80px;
+    background-color: #ffffff;
+}
