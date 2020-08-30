@@ -1,3 +1,4 @@
+@import url(_keyword/card__message-container_keyword.css);
 .card__message-container {
     background: #FFFFFF;
     box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);

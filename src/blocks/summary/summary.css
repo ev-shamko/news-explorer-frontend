@@ -1,0 +1,8 @@
+@import url(__content/summary__content.css);
+@import url(__header/summary__header.css);
+@import url(__saved-articles/summary__saved-articles.css);
+@import url(__all-keywords/summary__all-keywords.css);
+@import url(__keyword/summary__keyword.css);
+.summary {
+    background-color: #ffffff;
+}

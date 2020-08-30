@@ -10,6 +10,7 @@
 @import url(__message-container/card__message-container.css);
 @import url(__message/card__message.css);
 @import url(__button-icon/card__button-icon.css);
+@import url(__keyword/card__keyword.css);
 
 .card {
     width: 400px;
