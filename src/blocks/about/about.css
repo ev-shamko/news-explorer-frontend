@@ -7,3 +7,10 @@
     background-color: #FFFFFF;
     padding: 80px 40px;
 }
+
+@media screen and (max-width: 900px) {
+    .about {
+        padding-top: calc((100vw - 768px)/(900-768)*(80-40) + 40px);
+        bottom: calc((100vw - 768px)/(900-768)*(80-61) + 61px);
+    }
+}

@@ -10,3 +10,11 @@
 
     color: #1A1B22;
 }
+
+@media screen and (max-width: 900px) {
+    .about__header {
+        font-size: calc((100vw - 768px)/(900-768)*(40-30) + 30px);
+        line-height: calc((100vw - 768px)/(900-768)*(46-40) + 40px);
+        margin-bottom: calc((100vw - 768px)/(900-768)*(24-16) + 16px);
+    }
+}

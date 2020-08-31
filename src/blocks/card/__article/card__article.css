@@ -1,7 +1,16 @@
 .card__article {
-    max-height: 230px;
-    overflow: hidden; /* Обрезаем содержимое */
-    text-overflow: ellipsis;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    /*max-height: 230px;*/
+    /*overflow: hidden; Обрезаем содержимое
+    text-overflow: ellipsis;*/
 
     /*background-color: floralwhite;*/
+}
+
+@media screen and (max-width: 900px) {
+    .card__article {
+        max-height: calc((100vw - 768px)/(900-768)*(280-238) + 238px);
+    }
 }

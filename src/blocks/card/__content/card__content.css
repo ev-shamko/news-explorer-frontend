@@ -5,11 +5,17 @@
      для соответствия макету при первичной вёрстке,
      но в будущем этот блок я бы организовала иначе,
      в т.ч. сделала бы его высоту больше */
-    height: 260px;
+    /*max-height: 260px;*/
 
-    display: flex;
+    /*display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between;*/
 
     /*background-color: cornsilk;*/
+}
+
+@media screen and (max-width: 900px) {
+    .card__content {
+        padding: calc((100vw - 768px)/(900-768)*(24-16) + 16px);
+    }
 }

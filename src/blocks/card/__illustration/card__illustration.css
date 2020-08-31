@@ -6,4 +6,12 @@
     border-top-right-radius: 15px;
     display: flex;
     flex-direction: row-reverse;
+    background-size: cover;
+    background-position: 50%;
+}
+
+@media screen and (max-width: 1232px) {
+    .card__illustration {
+        height: calc((100vw - 768px)/(1232-768)*(272-150) + 150px);
+    }
 }

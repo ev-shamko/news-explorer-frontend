@@ -14,7 +14,6 @@
 
 .card {
     max-width: 400px;
-    height: 576px;
     border-radius: 15px;
 
     background-color: #FFFFFF;
@@ -27,4 +26,10 @@
 
     display: flex;
     flex-direction: column;*/
+}
+
+@media screen and (max-width: 900px) {
+    .card {
+        max-height: calc((100vw - 768px)/(900-768)*(576-420) + 420px);
+    }
 }

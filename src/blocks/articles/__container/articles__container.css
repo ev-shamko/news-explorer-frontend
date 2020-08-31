@@ -1,9 +1,9 @@
 .articles__container {
     display: grid;
+    /* gap: 16px;*/
 
     /* По 3 карточки в ряд, но их ширина сжимается */
-    grid-template-columns: repeat(3,1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
 
     /*  для переноса карточек на новую строку
     grid-template-columns: repeat(auto-fill,400px);
@@ -12,4 +12,11 @@
     column-gap: 16px;
     row-gap: 16px;
     justify-content: center;
+}
+
+@media screen and (max-width: 1232px) {
+    .articles__container {
+        column-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);;
+        row-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);;
+    }
 }

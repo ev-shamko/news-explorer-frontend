@@ -9,3 +9,11 @@
     margin: 0px;
     margin-bottom: 64px;
 }
+
+@media screen and (max-width: 900px) {
+    .title {
+        font-size: calc((100vw - 768px)/(900-768)*(40-30) + 30px);
+        line-height: calc((100vw - 768px)/(900-768)*(46-34) + 34px);
+        margin-bottom: calc((100vw - 768px)/(900-768)*(64-32) + 32px);
+    }
+}

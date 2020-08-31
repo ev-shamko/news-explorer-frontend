@@ -12,3 +12,11 @@
 
     /*outline: 1px solid #da8301;*/
 }
+
+@media screen and (max-width: 1000px) {
+    .card__button-container {
+        top: calc((100vw - 768px)/(1000-768)*(24-8) + 8px);
+        right: calc((100vw - 768px)/(1000-768)*(24-8) + 8px);
+
+    }
+}
