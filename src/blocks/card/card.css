@@ -13,7 +13,7 @@
 @import url(__keyword/card__keyword.css);
 
 .card {
-    width: 400px;
+    max-width: 400px;
     height: 576px;
     border-radius: 15px;
 

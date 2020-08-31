@@ -7,4 +7,10 @@
     font-size: 16px;
     line-height: 22px;
     color: #1A1B22;
+
+    /* Текс карточки не будет длиннее 5 строк: остальной текст скроется */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

@@ -8,4 +8,10 @@
     font-size: 26px;
     line-height: 30px;
     color: #1A1B22;
+
+    /* Заголовок не будет длиннее 3 строчек: остальной текст скроется */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

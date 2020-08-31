@@ -5,4 +5,5 @@
 @import url(__keyword/summary__keyword.css);
 .summary {
     background-color: #ffffff;
+    padding: 0 40px;
 }
