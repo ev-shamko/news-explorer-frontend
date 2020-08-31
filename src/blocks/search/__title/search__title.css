@@ -1,4 +1,4 @@
-.search__title{
+.search__title {
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: normal;
@@ -8,4 +8,13 @@
     color: #FFFFFF;
 
     margin: 0px 0px 32px 0px;
+}
+
+@media screen and (max-width: 1232px) {
+    .search__title {
+        font-size: calc((100vw - 768px)/(1232-768)*(60-36) + 36px);
+        line-height: calc((100vw - 768px)/(1232-768)*(64-40) + 40px);
+        max-width: 350px;
+        margin-bottom: calc((100vw - 768px)/(900-768)*(32-16) + 16px);
+    }
 }

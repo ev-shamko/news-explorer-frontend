@@ -4,6 +4,6 @@
 @import url(_black-underline/header_black-underline.css);
 .header {
     padding: 0 40px;
-    min-height: 80px;
     box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
 }
+

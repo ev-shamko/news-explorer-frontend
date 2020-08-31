@@ -12,3 +12,10 @@
     padding: 12px 19px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+    .menu__auth-button {
+        margin: 12px 0px;
+        padding: 8px 12px;
+    }
+}

@@ -1,3 +1,10 @@
 .search__field {
     position: relative;
+    height: 64px;
+}
+
+@media screen and (max-width: 1232px) {
+    .search__field {
+        height: calc((100vw - 768px)/(1232-768)*(64-56) + 56px);
+    }
 }

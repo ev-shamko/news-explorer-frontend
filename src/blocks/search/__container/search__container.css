@@ -7,3 +7,15 @@
     flex-direction: column;
     flex-wrap: nowrap;
 }
+
+@media screen and (max-width: 1232px) {
+    .search__container {
+        padding-top: calc((100vw - 768px)/(900-768)*(80-38) + 38px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .search__container {
+        max-width: calc(57vw + 11px);
+    }
+}

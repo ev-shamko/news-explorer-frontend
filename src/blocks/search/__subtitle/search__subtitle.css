@@ -9,3 +9,9 @@
 
     margin: 0px 0px 64px 0px;
 }
+
+@media screen and (max-width: 1232px) {
+    .search__subtitle {
+        margin-bottom: calc((100vw - 768px)/(900-768)*(64-48) + 48px);
+    }
+}

@@ -1,7 +1,7 @@
 .search__button {
     position: absolute;
     right: 0;
-    height: 64px;
+    height: 100%;
     width: 168px;
 
     background: #2F71E5;
