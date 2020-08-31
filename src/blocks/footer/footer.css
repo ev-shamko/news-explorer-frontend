@@ -6,3 +6,9 @@
     height: 80px;
     background-color: #ffffff;
 }
+
+@media screen and (max-width: 900px) {
+    .footer {
+        height: calc((100vw - 768px)/(900-768)*(80-64) + 64px);
+    }
+}
