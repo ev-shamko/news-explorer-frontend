@@ -11,6 +11,7 @@
     margin: 17px 0px 13px 0px;
     padding: 12px 19px;
     cursor: pointer;
+    transition: all .3s ease-in;
 }
 
 @media screen and (max-width: 900px) {

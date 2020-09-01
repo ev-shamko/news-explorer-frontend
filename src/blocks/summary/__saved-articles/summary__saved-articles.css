@@ -9,3 +9,12 @@
     line-height: 46px;
     color: #1A1B22;
 }
+
+@media screen and (max-width: 900px) {
+    .summary__saved-articles {
+        font-size: calc((100vw - 768px)/(900-768)*(40-30) + 30px);
+        line-height: calc((100vw - 768px)/(900-768)*(46-34) + 34px);
+        margin-bottom: calc((100vw - 768px)/(900-768)*(30-16) + 16px);
+        max-width: 380px;
+    }
+}

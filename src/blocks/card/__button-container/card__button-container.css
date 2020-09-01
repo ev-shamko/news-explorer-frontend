@@ -17,6 +17,6 @@
     .card__button-container {
         top: calc((100vw - 768px)/(1000-768)*(24-8) + 8px);
         right: calc((100vw - 768px)/(1000-768)*(24-8) + 8px);
-
+        width: 93%;
     }
 }

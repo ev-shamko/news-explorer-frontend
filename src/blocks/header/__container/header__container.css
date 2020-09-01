@@ -4,6 +4,7 @@
     justify-content: space-between;
     min-height: 80px;
     margin: 0px 66px;
+    transition: all .3s ease-in;
 }
 
 @media screen and (max-width: 1440px) {

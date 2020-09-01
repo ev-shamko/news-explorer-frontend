@@ -8,3 +8,10 @@
     line-height: 24px;
     color: #1A1B22;
 }
+
+@media screen and (max-width: 900px) {
+    .summary__all-keywords {
+        font-size: calc((100vw - 768px)/(900-768)*(18-14) + 14px);
+        margin-bottom: calc((100vw - 768px)/(900-768)*(56-32) + 32px);
+    }
+}
