@@ -11,6 +11,6 @@
 
 @media screen and (max-width: 900px) {
     .card__article {
-        max-height: calc((100vw - 768px)/(900-768)*(280-238) + 238px);
+        max-height: calc((100vw - 768px)/(900 - 768)*(280 - 238) + 238px);
     }
 }

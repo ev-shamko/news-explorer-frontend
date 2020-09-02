@@ -16,6 +16,6 @@
 
 @media screen and (max-width: 900px) {
     .card__content {
-        padding: calc((100vw - 768px)/(900-768)*(24-16) + 16px);
+        padding: calc((100vw - 768px)/(900 - 768)*(24 - 16) + 16px);
     }
 }

@@ -12,6 +12,6 @@
 
 @media screen and (max-width: 1232px) {
     .card__illustration {
-        height: calc((100vw - 768px)/(1232-768)*(272-150) + 150px);
+        height: calc((100vw - 768px)/(1232 - 768)*(272 - 150) + 150px);
     }
 }

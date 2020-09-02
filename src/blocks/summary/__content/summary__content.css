@@ -6,6 +6,6 @@
 
 @media screen and (max-width: 900px) {
     .summary__content {
-        padding-top: calc((100vw - 768px)/(900-768)*(40-24) + 24px);
+        padding-top: calc((100vw - 768px)/(900 - 768)*(40 - 24) + 24px);
     }
 }
