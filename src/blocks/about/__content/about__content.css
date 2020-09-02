@@ -11,6 +11,6 @@
 
 @media screen and (max-width: 900px) {
     .about__content {
-        padding-right: calc((100vw - 768px)/(900-768)*(109-0) + 0px);
+        padding-right: calc((100vw - 768px)/(900 - 768)*(109 - 0) + 0px);
     }
 }

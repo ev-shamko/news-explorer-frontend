@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 900px) {
     .about__author-portrait {
-        margin-right: calc((100vw - 768px)/(900-768)*(56-32) + 32px);
-        width: calc((100vw - 768px)/(900-768)*(50-34) + 34%)
+        margin-right: calc((100vw - 768px)/(900 - 768)*(56 - 31) + 31px);
+        width: calc((100vw - 768px)/(900 - 768)*(50 - 34) + 34%)
     }
 }

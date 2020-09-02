@@ -10,11 +10,11 @@
     margin: 0px 0px 32px 0px;
 }
 
-@media screen and (max-width: 1232px) {
+@media screen and (max-width: 1200px) {
     .search__title {
-        font-size: calc((100vw - 768px)/(1232-768)*(60-36) + 36px);
-        line-height: calc((100vw - 768px)/(1232-768)*(64-40) + 40px);
+        font-size: calc((100vw - 768px)/(1200 - 768)*(60 - 36) + 36px);
+        line-height: calc((100vw - 768px)/(1200 - 768)*(64 - 40) + 40px);
         max-width: 350px;
-        margin-bottom: calc((100vw - 768px)/(900-768)*(32-16) + 16px);
+        margin-bottom: calc((100vw - 768px)/(1200 - 768)*(32 - 16) + 16px);
     }
 }

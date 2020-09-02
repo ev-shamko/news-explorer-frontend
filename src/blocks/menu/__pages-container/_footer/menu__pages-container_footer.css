@@ -4,6 +4,6 @@ ul.menu__pages-container_footer {
 
 @media screen and (max-width: 900px) {
     ul.menu__pages-container_footer {
-        margin-right: calc((100vw - 768px)/(900-768)*(41-15) + 15px);
+        margin-right: calc((100vw - 768px)/(900 - 768)*(41 - 15) + 15px);
     }
 }

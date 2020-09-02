@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 1232px) {
     .articles__container {
-        column-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);;
-        row-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);;
+        column-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);
+        row-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);
     }
 }

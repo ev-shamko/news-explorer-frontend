@@ -6,12 +6,12 @@
 @import url(./__subtitle/search__subtitle.css);
 @import url(./__title/search__title.css);
 .search {
-    min-height: 496px;
+    /*min-height: 496px;*/
 }
 
-@media screen and (max-width: 1232px) {
+@media screen and (max-width: 1200px) {
     .search {
-        min-height: calc((100vw - 768px)/(1400-768)*(496-334) + 334px);
+        /*min-height: calc((100vw - 768px)/(1200 - 768)*(496 - 334) + 334px);*/
     }
 }
 

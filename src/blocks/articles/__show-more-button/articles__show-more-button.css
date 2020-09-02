@@ -28,8 +28,8 @@
 
 @media screen and (max-width: 1000px) {
     .articles__show-more-button {
-        margin-top: calc((100vw - 768px)/(1000-768)*(64-32) + 32px);
-        width: calc((100vw - 768px)/(1000-768)*(288-240) + 240px);
-        height: calc((100vw - 768px)/(1000-768)*(64-56) + 56px);
+        margin-top: calc((100vw - 768px)/(1000 - 768)*(64 - 32) + 32px);
+        width: calc((100vw - 768px)/(1000 - 768)*(288 - 240) + 240px);
+        height: calc((100vw - 768px)/(1000 - 768)*(64 - 56) + 56px);
     }
 }

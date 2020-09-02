@@ -4,6 +4,6 @@
 
 @media screen and (max-width: 900px) {
     .about__text-area {
-        margin-top: calc((100vw - 768px)/(900-768)*(51-0) + 0px);
+        margin-top: calc((100vw - 768px)/(900 - 768)*(51 - 0) + 0px);
     }
 }

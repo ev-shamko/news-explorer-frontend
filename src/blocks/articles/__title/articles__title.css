@@ -1,20 +1,18 @@
-.about__header {
-    margin: 0;
-    margin-bottom: 24px;
-
+.articles__title {
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: normal;
     font-size: 40px;
     line-height: 46px;
-
     color: #1A1B22;
+
+    margin: 0 0 64px 0;
 }
 
 @media screen and (max-width: 900px) {
-    .about__header {
+    .articles__title {
         font-size: calc((100vw - 768px)/(900 - 768)*(40 - 30) + 30px);
-        line-height: calc((100vw - 768px)/(900 - 768)*(46 - 40) + 40px);
-        margin-bottom: calc((100vw - 768px)/(900 - 768)*(24 - 10) + 10px);
+        line-height: calc((100vw - 768px)/(900 - 768)*(46 - 34) + 34px);
+        margin-bottom: calc((100vw - 768px)/(900 - 768)*(64 - 32) + 32px);
     }
 }
