@@ -27,12 +27,9 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|ico|svg)$/i, // решает проблему с svg
                 use: [
                     {
-                        loader: "file-loader",
+                        loader: 'file-loader',
                         options: {
-                            name: "[name].[ext]",
-                            publicPath: "images",
-                            outputPath: "./images",
-                            useRelativePath: true,
+                            name: './images/[name].[ext]',
                             esModule: false,
                         },
                     },
@@ -45,11 +42,19 @@ module.exports = {
             {
                 test: /\.css$/, // регулярка: применять это правило только к CSS-файлам
                 use: [
-                    (isDev ? 'style-loader' : MiniCssExtractPlugin.loader), // в зависимости от типа сборки применяем один из этих пакетов
-                    // внимание! вместо MiniCssExtractPlugin м.б. объект с ним же и доп.настройкой, задающей путь к коренвой папке. См. подробнее в вебинаре на 30 мин.
+                    isDev // в зависимости от типа сборки применяем один из этих пакетов
+                        ? 'style-loader'
+                        : {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                publicPath: '../', // этот параметр проставит правильный путь до папки dist/images в css-файле
+                                // а именно: "../images/pic.jpg" а не "images/pic.jpg"
+                                // также будет правильная ссылка на папку со шрифтами: "../fonts/f.woff"
+                            },
+                        },
                     'css-loader',
-                    'postcss-loader' // проставляет вендорные префиксы
-                ] // к этим файлам нужно применить пакеты: mini-css-extract-plugin, css-loader
+                    'postcss-loader', // проставляет вендорные префиксы
+                ], // к этим файлам нужно применить пакеты: mini-css-extract-plugin, css-loader
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/, // решает проблему с ошибкой сборки из-за шрифтов
@@ -60,13 +65,13 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'style/style.[contenthash].css' // на вебинаре: style/style.[contenthash].css
+            filename: 'style/style.[contenthash].css'
         }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
             cssProcessorPluginOptions: {
-                preset: ['default'],
+                preset: ['default', { calc: false }], // { calc: false } отключает оптимизацию calc-уравнений в css-свойствах
             },
             canPrint: true
         }),
