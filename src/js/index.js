@@ -21,4 +21,11 @@ function closeForm() {
 
 menuOpenButton.addEventListener('click', manageMenuVisibility);
 buttonCloseForm.addEventListener('click', closeForm);
-buttonAuth.addEventListener('click', () => { openForm(); manageMenuVisibility(); });
+buttonAuth.addEventListener('click', () => {
+    openForm();
+
+    // временный фикс бага с расползающейся вёрсткой из-за мобильного меню. Меню нужно переделать
+    if (menuInHeader.classList.contains('header__menu-container_displayed')) {
+        manageMenuVisibility();
+    }
+});
