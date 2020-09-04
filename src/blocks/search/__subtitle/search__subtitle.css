@@ -15,3 +15,15 @@
         margin-bottom: calc((100vw - 768px)/(1200 - 768)*(64 - 48) + 48px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .search__subtitle {
+        margin-bottom: calc((100vw - 320px)/(767 - 320)*(48 - 122) + 122px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search__subtitle {
+        margin-bottom: 122px;
+    }
+}

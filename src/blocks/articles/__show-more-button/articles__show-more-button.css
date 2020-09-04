@@ -33,3 +33,17 @@
         height: calc((100vw - 768px)/(1000 - 768)*(64 - 56) + 56px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .articles__show-more-button {
+        margin-top: 22px;
+        width: 288px;
+        height: 56px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .articles__show-more-button {
+        margin-top: 16px;
+    }
+}

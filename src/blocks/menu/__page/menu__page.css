@@ -22,3 +22,17 @@
         margin-left: 16px;
     }
 }
+
+@media screen and (max-width: 750px) {
+    .menu__page {
+        margin: 0 0 32px;
+        padding-top: 0px;
+        font-size: 18px;
+        line-height: 24px;
+        color: white;
+    }
+
+    .menu__page:last-child {
+        margin-bottom: 0px;
+    }
+}

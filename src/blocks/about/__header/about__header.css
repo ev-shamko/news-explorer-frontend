@@ -18,3 +18,11 @@
         margin-bottom: calc((100vw - 768px)/(900 - 768)*(24 - 10) + 10px);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .about__header {
+        font-size: 30px;
+        line-height: 40px;
+        margin-bottom: 16px;
+    }
+}

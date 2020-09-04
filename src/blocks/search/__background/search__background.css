@@ -15,6 +15,7 @@
 @media screen and (max-width: 900px) {
     .search__background {
         height: calc((100vw - 768px)/(900 - 768)*(576 - 410) + 410px);
+        min-height: 410px;
         background-image: url(../../../images/background-pic-small.png);
         margin-top: -66px;
         transition: none;
@@ -27,4 +28,17 @@
     }
 }
 
+@media screen and (max-width: 670px) {
+    .search__background {
+        min-height: 469px;
+        min-height: calc((100vw - 321px)/(670 - 321)*(469 - 592) + 592px);
+    }
+}
 
+
+@media screen and (max-width: 320px) {
+    .search__background {
+        height: 592px;
+        min-width: 320px;
+    }
+}

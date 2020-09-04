@@ -5,3 +5,11 @@
     justify-content: space-between;
     margin-left: 23px;
 }
+
+@media screen and (max-width: 750px) {
+    .menu__icons-container {
+        margin: 0;
+        width: 70px;
+
+    }
+}

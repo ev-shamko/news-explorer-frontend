@@ -1,11 +1,4 @@
 .summary__content {
     max-width: 1232px;
     margin: 0 auto;
-    padding-top: 40px;
-}
-
-@media screen and (max-width: 900px) {
-    .summary__content {
-        padding-top: calc((100vw - 768px)/(900 - 768)*(40 - 24) + 24px);
-    }
 }

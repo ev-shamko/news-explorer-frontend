@@ -23,3 +23,17 @@
         margin-bottom: calc((100vw - 768px)/(900 - 768)*(16 - 10) + 10px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .card__header {
+        font-size: 22px;
+        line-height: calc((100vw - 320px)/(767 - 320)*(24 - 26) + 26px);
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .articles__title {
+        margin-bottom: 24px;
+    }
+}

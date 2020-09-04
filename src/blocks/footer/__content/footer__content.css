@@ -6,3 +6,11 @@
     justify-content: space-between;
     height: inherit;
 }
+
+@media screen and (max-width: 750px) {
+    .footer__content {
+        flex-direction: column-reverse;
+        min-width: 275px;
+
+    }
+}

@@ -1,9 +1,35 @@
 .about__text-area {
     margin-top: 51px;
+    transition: all .3s ease-in
 }
 
 @media screen and (max-width: 900px) {
     .about__text-area {
         margin-top: calc((100vw - 768px)/(900 - 768)*(51 - 0) + 0px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about__text-area {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .about__text-area {
+        margin: 0 auto;
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about__text-area {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about__text-area {
+        padding: 0 16px;
     }
 }

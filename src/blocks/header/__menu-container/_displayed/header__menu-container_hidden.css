@@ -1,0 +1,4 @@
+div > nav.header__menu-container_displayed {
+    display: block;
+    min-width: auto;
+}

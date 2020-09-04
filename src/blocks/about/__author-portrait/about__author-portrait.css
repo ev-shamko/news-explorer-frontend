@@ -12,6 +12,30 @@
 @media screen and (max-width: 900px) {
     .about__author-portrait {
         margin-right: calc((100vw - 768px)/(900 - 768)*(56 - 31) + 31px);
-        width: calc((100vw - 768px)/(900 - 768)*(50 - 34) + 34%)
+        width: calc((100vw - 768px)/(900 - 768)*(50 - 34) + 34%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about__author-portrait {
+        margin-right: 32px;
+        width: 232px;
+        transition: all .3s ease-in
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .about__author-portrait {
+        margin: 0 auto 24px;
+        width: 52%;
+        min-width: 272px;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .about__author-portrait {
+        margin: 0 auto 24px;
+        width: 272px;
     }
 }

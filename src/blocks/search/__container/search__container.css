@@ -19,3 +19,17 @@
         max-width: calc(57vw + 11px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .search__container {
+        padding-top: calc((100vw - 321px)/(767 - 321)*(38 - 30) + 30px);
+        max-width: calc((100vw - 321px)/(767 - 321)*(488 - 288) + 288px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search__container {
+        padding-top: 30px;
+        max-width: 288px;
+    }
+}

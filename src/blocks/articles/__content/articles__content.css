@@ -2,3 +2,11 @@
     max-width: 1232px;
     margin: 0px auto;
 }
+
+
+@media screen and (max-width: 350px) {
+    .articles__content {
+        margin: 0px auto;
+        min-width: 288px
+    }
+}

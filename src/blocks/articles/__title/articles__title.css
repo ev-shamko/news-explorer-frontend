@@ -16,3 +16,36 @@
         margin-bottom: calc((100vw - 768px)/(900 - 768)*(64 - 32) + 32px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .articles__title {
+        font-size: 30px;
+        line-height: 34px;
+        margin-bottom: calc((100vw - 321px)/(767 - 321)*(32 - 24) + 24px);
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .articles__title {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 398px) {
+    .articles__title {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .articles__title {
+        margin-left: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .articles__title {
+        margin-bottom: 24px;
+    }
+}

@@ -1,5 +1,5 @@
 .summary__all-keywords {
-    margin: 0 auto 56px 0;
+    margin: 0 auto 0 0;
 
     font-family: Roboto;
     font-style: normal;
@@ -12,6 +12,24 @@
 @media screen and (max-width: 900px) {
     .summary__all-keywords {
         font-size: calc((100vw - 768px)/(900 - 768)*(18 - 14) + 14px);
-        margin-bottom: calc((100vw - 768px)/(900 - 768)*(56 - 32) + 32px);
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .summary__all-keywords {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .summary__all-keywords {
+        font-size:  calc((100vw - 320px)/(767 - 320)*(14 - 18) + 18px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .summary__all-keywords {
+        font-size: 18px;
     }
 }

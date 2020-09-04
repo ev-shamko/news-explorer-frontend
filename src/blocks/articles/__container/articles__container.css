@@ -20,3 +20,19 @@
         row-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .articles__container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        row-gap: 10px;
+        column-gap: 16px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .articles__container {
+        grid-template-columns: repeat(auto-fill,288px);
+        grid-template-rows: auto;
+    }
+}

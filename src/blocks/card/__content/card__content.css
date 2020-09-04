@@ -19,3 +19,9 @@
         padding: calc((100vw - 768px)/(900 - 768)*(24 - 16) + 16px);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .card__content {
+        padding: 16px;
+    }
+}

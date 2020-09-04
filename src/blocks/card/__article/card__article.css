@@ -14,3 +14,9 @@
         max-height: calc((100vw - 768px)/(900 - 768)*(280 - 238) + 238px);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .card__article {
+        max-height: 238px;
+    }
+}

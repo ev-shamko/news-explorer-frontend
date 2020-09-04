@@ -12,3 +12,24 @@
         height: calc((100vw - 768px)/(900 - 768)*(80 - 64) + 64px);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .footer {
+        height: 64px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .footer {
+        height: 100%;
+        padding: 20px 16px 22px 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .footer {
+        height: 100%;
+        padding: 20px 16px 22px 18px;
+        width: 286px;
+    }
+}

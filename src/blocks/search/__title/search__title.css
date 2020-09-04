@@ -18,3 +18,12 @@
         margin-bottom: calc((100vw - 768px)/(1200 - 768)*(32 - 16) + 16px);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+        max-width: 350px;
+        margin-bottom: 16px;
+    }
+}

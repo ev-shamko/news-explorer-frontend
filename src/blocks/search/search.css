@@ -9,9 +9,9 @@
     /*min-height: 496px;*/
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 320px) {
     .search {
-        /*min-height: calc((100vw - 768px)/(1200 - 768)*(496 - 334) + 334px);*/
+        height: 480px;
     }
 }
 

@@ -13,3 +13,11 @@
         margin-right: 16px;
     }
 }
+
+@media screen and (max-width: 750px) {
+    .menu__pages-container {
+        flex-direction: column;
+        margin: 0 0 30px 16px;
+        width: fit-content;
+    }
+}
