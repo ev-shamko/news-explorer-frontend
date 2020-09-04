@@ -14,6 +14,7 @@
 
 <body>
   <div class="root">
+
     <header class="header">
       <div class="header__container">
         <a class="header__logo">NewsExplorer</a>
@@ -31,7 +32,10 @@
         </nav>
       </div>
     </header>
+
     <main>
+
+      <!-- Блок поиска новостей -->
       <section class="search">
         <div class="search__background"></div>
         <div class="search__container">
@@ -44,9 +48,13 @@
           </div>
         </div>
       </section>
+
+      <!-- Блок выдачи найденных новостей -->
       <section class="articles">
         <div class="articles__content">
           <h2 class="articles__title">Результаты поиска</h2>
+
+          <!-- Контейнер с карточками новостей -->
           <div class="articles__container">
             <div class="card">
               <div class="card__illustration"
@@ -172,6 +180,8 @@
         </div>
         <button class="articles__show-more-button">Показать ещё</button>
       </section>
+
+      <!-- Блок с информацией об авторе -->
       <section class="about">
         <div class="about__content">
           <img class="about__author-portrait" src="<%= require(`../images/auth-portrait.jpg`) %>" alt="портрет автора">
@@ -185,6 +195,8 @@
         </div>
       </section>
     </main>
+
+    <!-- "Это футер", - сказал Капитан Очевидность. -->
     <footer class="footer">
       <div class="footer__content">
         <p class="footer__copyrigth">© 2020 Supersite, Powered by News API</p>
@@ -206,23 +218,30 @@
       </div>
   </div>
   </footer>
-  <!--
 
-      <img src="./images/close-white.svg" alt="Закрыть" class="popup__close popup__registration_close">
-      <h3 class="popup__title">Регистрация</h3>
-      <form class="popup__form popup__registration_form" name="registration">
-        <input type="email" name="email" class="popup__input popup__input_email" placeholder="Введите email" required>
-        <span class="popup__error popup__error_no-symbol"></span>
-        <input type="text" name="password" class="popup__input popup__input_password" placeholder="Введите пароль" required minlength="2" maxlength="30">
-        <span class="popup__error popup__error_no-symbol"></span>
-        <input type="text" name="name" class="popup__input popup__input_name" placeholder="Введите своё имя" required minlength="2" maxlength="30">
-        <span class="popup__error popup__error_no-symbol"></span>
-        <button type="submit" class="button popup__button popup-button_disabled" disabled="true">Зарегистрироваться</button>
-        <a class="">или <a class="" href="" Авторизироваться</a>
-      </form>
-      -->
-  <div class="popup popup__registration popup_is-opened">
+  <!-- Образец формы для регистрации -->
+  <div class="popup popup__registration">
     <div class="popup__content">
+      <div src="<%=require('../images/close-white.svg')%>" alt="Закрыть" class="popup__close popup__registration_close"></div>
+      <h3 class="popup__title">Регистрация</h3>
+
+      <form class="form form__registration-form" name="registration">
+        <label class="form__label" for="reg-email">Email</label>
+        <input class="form__input form__input_email" type="email" name="email" id="reg-email" placeholder="Введите email" required>
+        <span class="form__error form__error_no-symbol">Неправильный формат email</span>
+
+        <label class="form__label" for="reg-password">Пароль</label>
+        <input class="form__input form__input_password" type="text" name="password" id="reg-password" placeholder="Введите пароль" required minlength="2" maxlength="30">
+        <span class="form__error form__error_no-symbol">Длина пароля должна быть от 2 до 30 символов</span>
+
+        <label class="form__label" for="reg-name">Имя</label>
+        <input class="form__input form__input_name" type="text" name="name" id="reg-name" placeholder="Введите своё имя" required minlength="2" maxlength="30">
+        <span class="form__error form__error_no-symbol">Имя должно быть от 2 дл 30 символов</span>
+
+        <button type="submit" class="button form__button form__button_disabled" disabled="true">Зарегистрироваться</button>
+        <p class="form__message-change-form">или <a class="form__go-to-auth" href="#">Войти</a></p>
+      </form>
+
     </div>
   </div>
 
