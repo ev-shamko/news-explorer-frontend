@@ -1,0 +1,18 @@
+.footer__copyrigth {
+    margin: 0;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    align-self: center;
+
+    color: #b6bcbf;
+}
+
+@media screen and (max-width: 750px) {
+    .footer__copyrigth {
+        align-self: end;
+    }
+}

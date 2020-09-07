@@ -1,0 +1,6 @@
+div > div.header__menu-button_cross-black {
+    background-image: url('../../../../images/close-black.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+}

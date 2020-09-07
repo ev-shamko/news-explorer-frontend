@@ -1,0 +1,29 @@
+.search__title {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 64px;
+
+    color: #FFFFFF;
+
+    margin: 0px 0px 32px 0px;
+}
+
+@media screen and (max-width: 1200px) {
+    .search__title {
+        font-size: calc((100vw - 768px)/(1200 - 768)*(60 - 36) + 36px);
+        line-height: calc((100vw - 768px)/(1200 - 768)*(64 - 40) + 40px);
+        max-width: 350px;
+        margin-bottom: calc((100vw - 768px)/(1200 - 768)*(32 - 16) + 16px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .search__title {
+        font-size: 36px;
+        line-height: 40px;
+        max-width: 350px;
+        margin-bottom: 16px;
+    }
+}

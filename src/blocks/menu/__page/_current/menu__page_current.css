@@ -1,0 +1,12 @@
+li.menu__page_current {
+    border-bottom: 3px solid white;
+    margin-top: 3px;
+    color: white;
+}
+
+@media screen and (max-width: 750px) {
+    li.menu__page_current {
+        border: none;
+        margin-top: 0px;
+    }
+}

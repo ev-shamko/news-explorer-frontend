@@ -1,0 +1,30 @@
+@import url(_black-font/header__logo_black-font.css);
+.header__logo {
+    font-family: Roboto Slab Bold;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: white;
+    align-self: center;
+
+    z-index: 5;
+}
+
+@media screen and (max-width: 750px) {
+    .header__logo {
+        margin-left: 16px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .header__logo {
+        font-size: calc((100vw - 321px)/(650 - 321)*(20 - 16) + 16px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__logo {
+        font-size: 16px;
+    }
+}

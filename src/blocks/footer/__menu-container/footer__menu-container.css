@@ -1,0 +1,11 @@
+.footer__menu-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+@media screen and (max-width: 750px) {
+    .footer__menu-container {
+        margin-bottom: 40px;
+    }
+}

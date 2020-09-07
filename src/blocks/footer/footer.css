@@ -1,0 +1,35 @@
+@import url(__content/footer__content.css);
+@import url(__copyrigth/footer__copyrigth.css);
+@import url(__menu-container/footer__menu-container.css);
+.footer {
+    padding: 0 40px;
+    height: 80px;
+    background-color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+    .footer {
+        height: calc((100vw - 768px)/(900 - 768)*(80 - 64) + 64px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        height: 64px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .footer {
+        height: 100%;
+        padding: 20px 16px 22px 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .footer {
+        height: 100%;
+        padding: 20px 16px 22px 18px;
+        width: 286px;
+    }
+}

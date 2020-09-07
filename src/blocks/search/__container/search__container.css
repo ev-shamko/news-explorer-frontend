@@ -1,0 +1,35 @@
+.search__container {
+    max-width: 608px;
+    margin: 0 auto;
+    padding-top: 80px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 1200px) {
+    .search__container {
+        padding-top: calc((100vw - 768px)/(1200 - 768)*(80 - 38) + 38px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .search__container {
+        max-width: calc(57vw + 11px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .search__container {
+        padding-top: calc((100vw - 321px)/(767 - 321)*(38 - 30) + 30px);
+        max-width: calc((100vw - 321px)/(767 - 321)*(488 - 288) + 288px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search__container {
+        padding-top: 30px;
+        max-width: 288px;
+    }
+}

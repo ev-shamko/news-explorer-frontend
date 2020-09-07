@@ -1,0 +1,35 @@
+.card__illustration {
+    width: 100%;
+    height: 272px;
+    background-color: lightslategray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    background-size: cover;
+    background-position: 50%;
+}
+
+@media screen and (max-width: 1232px) {
+    .card__illustration {
+        height: calc((100vw - 768px)/(1232 - 768)*(272 - 150) + 150px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card__illustration {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .card__illustration {
+        height: calc((100vw - 768px)/(1232 - 768)*(272 - 196) + 196px);
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .card__illustration {
+        height: 196px;
+    }
+}

@@ -1,0 +1,10 @@
+@media screen and (max-width: 1030px) {
+    div.card__message-container_message {
+        /*
+        Попытки сдвинуть блок вниз - а следующий блок всё-равно режется по ширине
+        position: relative;
+        left: 45px;
+        top: 45px;*/
+        display: none;
+    }
+}

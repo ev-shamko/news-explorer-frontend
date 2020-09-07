@@ -1,0 +1,30 @@
+@import url(_black/menu__auth-button_black.css);
+.menu__auth-button {
+    border: 1px solid white;
+    border-radius: 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin: 17px 0px 13px 0px;
+    padding: 12px 19px;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+
+@media screen and (max-width: 900px) {
+    .menu__auth-button {
+        margin: 12px 0px;
+        padding: 8px 12px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu__auth-button {
+        margin: 8px 0px 24px 16px;
+        padding: 15px 12px;
+        width: 288px;
+    }
+}

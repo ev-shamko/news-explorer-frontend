@@ -1,10 +1,11 @@
-# enviroment variables
+#
 .env
 
-# Optional REPL history
+#
 .DS_Store
-.idea
+.idea/
 
-# Dependency directory
+#
 node_modules
 dist
+src/figma/

@@ -1,0 +1,25 @@
+@import url(_displayed/header__menu-container_hidden.css);
+@import url(_grey-back/header__menu-container_grey-back.css);
+.header__menu-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 750px) {
+    .header__menu-container {
+        justify-content: space-between;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        min-width: 320px;
+        /*padding: 88px 0px 0px 16px;*/
+        padding-top: 88px;
+        background-color: #1A1B22;
+        flex-direction: column;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+
+        display: none;
+    }
+}

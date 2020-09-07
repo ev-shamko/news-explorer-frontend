@@ -1,0 +1,23 @@
+@import url(_footer/menu__pages-container_footer.css);
+.menu__pages-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+    padding: 0;
+    margin: 0 34px 0 0;
+    }
+
+@media screen and (max-width: 900px) {
+    .menu__pages-container {
+        margin-right: 16px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu__pages-container {
+        flex-direction: column;
+        margin: 0 0 30px 16px;
+        width: fit-content;
+    }
+}

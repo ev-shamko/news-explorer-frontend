@@ -1,0 +1,36 @@
+@import url(__content/about__content.css);
+@import url(__author-portrait/about__author-portrait.css);
+@import url(__text-area/about__text-area.css);
+@import url(__header/about__header.css);
+@import url(__description/about__description.css);
+.about {
+    background-color: #FFFFFF;
+    padding: 80px 40px;
+}
+
+@media screen and (max-width: 900px) {
+    .about {
+        padding-top: calc((100vw - 768px)/(900 - 768)*(80 - 40) + 40px);
+        padding-bottom: calc((100vw - 768px)/(900 - 768)*(80 - 50) + 50px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        padding-top: calc((100vw - 320px)/(768 - 320)*(40 - 32) + 32px);
+        padding-bottom: 61px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about {
+        padding: 32px 0px 56px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about {
+        padding: 32px 0px 56px;
+        width: 320px;
+    }
+}

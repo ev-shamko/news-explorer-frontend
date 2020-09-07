@@ -1,0 +1,14 @@
+@import url(__pages-container/menu__pages-container.css);
+@import url(__page/menu__page.css);
+@import url(__auth-button/menu__auth-button.css);
+@import url(__logout-icon/menu__logout-icon.css);
+@import url(__username/menu__username.css);
+@import url(__icons-container/menu__icons-container.css);
+@import url(__icon/menu__icon.css);
+.menu {
+    font-family: Roboto,Arial,Helvetica,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    }

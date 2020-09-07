@@ -1,0 +1,29 @@
+.search__subtitle {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+
+    margin: 0px 0px 64px 0px;
+}
+
+@media screen and (max-width: 1200px) {
+    .search__subtitle {
+        margin-bottom: calc((100vw - 768px)/(1200 - 768)*(64 - 48) + 48px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .search__subtitle {
+        margin-bottom: calc((100vw - 320px)/(767 - 320)*(48 - 122) + 122px);
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search__subtitle {
+        margin-bottom: 122px;
+    }
+}

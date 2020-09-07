@@ -1,0 +1,23 @@
+@import url(_cross-white/header__menu-button_cross-white.css);
+@import url(_cross-black/header__menu-button_cross-black.css);
+@import url(_black/header__menu-button_black.css);
+.header__menu-button {
+    background-image: url('../../../images/menu.svg');
+    cursor: pointer;
+
+    display: none;
+
+    width: 24px;
+    height: 24px;
+    right: 16px;
+    align-self: center;
+    position: relative;
+
+    z-index: 5;
+}
+
+@media screen and (max-width: 750px) {
+    .header__menu-button {
+        display: block;
+    }
+}

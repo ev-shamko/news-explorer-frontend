@@ -1,0 +1,11 @@
+.card__keyword {
+    align-self: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    font-family: Roboto Slab Bold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+}

@@ -1,0 +1,38 @@
+.articles__container {
+    display: grid;
+    /* gap: 16px;*/
+
+    /* По 3 карточки в ряд, но их ширина сжимается */
+    grid-template-columns: repeat(3, 1fr);
+
+    /*  для переноса карточек на новую строку
+    grid-template-columns: repeat(auto-fill,400px);
+    grid-template-rows: repeat(auto-fill,576px);
+    */
+    column-gap: 16px;
+    row-gap: 16px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1232px) {
+    .articles__container {
+        column-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);
+        row-gap: calc((100vw - 768px) / (1232 - 768) * (16 - 8) + 8px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .articles__container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        row-gap: 10px;
+        column-gap: 16px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .articles__container {
+        grid-template-columns: repeat(auto-fill,288px);
+        grid-template-rows: auto;
+    }
+}

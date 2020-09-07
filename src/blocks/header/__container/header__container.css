@@ -1,0 +1,23 @@
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 0px 66px;
+    transition: all .3s ease-in;
+}
+
+@media screen and (max-width: 1440px) {
+    .header__container {
+        max-width: 1232px;
+        min-height: 66px;
+        margin: 0px auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header__container {
+        min-height: 56px;
+        /*min-width: 303px;*/
+    }
+}
