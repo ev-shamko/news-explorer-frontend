@@ -25,9 +25,12 @@
             <li class="menu__page"><a href="./articles.html">Сохранённые статьи</a></li>
           </ul>
           <button class="menu__auth-button">
+            <span class="menu__username">Зарегистрироваться</span>
+            <!--
             <span class="menu__username">Грета</span>
             <img class="menu__logout-icon" src="<%=require('../images/logout-white.png')%>"
                  alt="Кнопка для выхода из сервиса">
+             -->
           </button>
         </nav>
       </div>
@@ -238,14 +241,14 @@
         <input class="form__input form__input_name" type="text" name="name" id="reg-name" placeholder="Введите своё имя" required minlength="2" maxlength="30">
         <span class="form__error form__error_no-symbol">Имя должно быть от 2 дл 30 символов</span>
 
-        <button type="submit" class="button form__button form__button_disabled" disabled="true">Зарегистрироваться</button>
+        <button type="submit" class="lala button form__button form__button_disabled">Зарегистрироваться</button>
         <p class="form__message-change-form">или <a class="form__go-to-auth" href="#">Войти</a></p>
       </form>
 
     </div>
   </div>
 
-  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
   </div>
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 </body>
 </html>

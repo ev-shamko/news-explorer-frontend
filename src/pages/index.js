@@ -1,4 +1,24 @@
 import "../css/style.css";
+import MainApi from "../js/api/MainApi";
+import FormRegistration from "../js/components/FormRegistration/FormRegistration";
+
+const mainApi = new MainApi({
+    baseUrl: 'https://api.news-collection.space',
+});
+
+mainApi.test(); // сигнализирует о том, что класс успешнос оздан
+
+const formRegistration = new FormRegistration(
+    {
+        formName: document.forms.registration,
+        inputsClass: '.form__input',
+        submitButtonClass: '.form__button',
+    },
+    mainApi.signup,
+);
+
+formRegistration.test();
+formRegistration.testForm();
 
 const menuOpenButton = document.querySelector('.header__menu-button');
 const menuInHeader = document.querySelector(".header__menu-container");
