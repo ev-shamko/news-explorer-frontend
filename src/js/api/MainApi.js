@@ -6,7 +6,7 @@ export default class MainApi {
         this.urlSignup = this.baseUrl + '/signup'; // 'https://api.news-collection.space/signup'
         this.urlSignin = this.baseUrl + '/signin';
 
-        this.signup = this._signup.bind(this); // метод передаётся в экземпляр класса FormRegistration и там вызывается, поэтому this нужно забиндить
+        this.signup = this._signup.bind(this);
     }
 
     test() {
@@ -17,9 +17,8 @@ export default class MainApi {
 
     // создание нового пользователя в бд
     _signup(userData) {
-        const {name, email, password} = userData;
-        console.log(`MainApi.signup() is running. UserData:`);
-        console.log(userData);
+        //console.log(`MainApi.signup() is running. UserData:`);
+        //console.log(userData);
 
         return fetch('https://api.news-collection.space/signup', {
             method: 'POST',
@@ -30,14 +29,25 @@ export default class MainApi {
         })
             .then(res => {
                 if (res.ok) {
-                    console.log('registration sucsessfull. This is res:');
-                    console.log(res.json);
+                    console.log('registration was successful');
+                    // console.log(res.json()); - более-менее вернёт объект ответа
+                    // console.log(JSON.stringify(res.body)); // так в консоли отобразится пустой объект
+
+                    /*  Вот так объект нормально соберётся
+
+                  .then(res => res.json())
+                  .then((result) => {
+                   console.log(result);
+                  })
+
+                    */
                     return res.json();
                 }
-                return Promise.reject(`Ошибка: ${res.status}`);
+                return Promise.reject(`Ошибка: ${res.status}`); //  ${res.message} - не получается вытащить
             })
             .catch((err) => {
-                console.log(err.message);
+                console.log(err); // надо подумать, как это лучше обработать
+                console.log(err.json());
             });
     }
 
