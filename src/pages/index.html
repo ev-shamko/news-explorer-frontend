@@ -25,7 +25,7 @@
             <li class="menu__page"><a href="./articles.html">Сохранённые статьи</a></li>
           </ul>
           <button class="menu__auth-button">
-            <span class="menu__username">Зарегистрироваться</span>
+            <span class="menu__username">Войти</span>
             <!--
             <span class="menu__username">Грета</span>
             <img class="menu__logout-icon" src="<%=require('../images/logout-white.png')%>"
@@ -222,6 +222,25 @@
   </div>
   </footer>
 
+  <!-- Образец формы для авторизации -->
+  <div class="popup popup__login">
+    <div class="popup__content">
+      <div src="<%=require('../images/close-white.svg')%>" alt="Закрыть" class="popup__close popup__login_close"></div>
+      <h3 class="popup__title">Войти</h3>
+
+      <form class="form form__login-form" name="login">
+        <label class="form__label" for="login-email">Email</label>
+        <input class="form__input form__input_email" type="email" name="email" id="login-email" placeholder="Введите email" required>
+        <span class="form__error form__error_no-symbol">Неправильный формат email</span>
+
+        <label class="form__label" for="login-password">Пароль</label>
+        <input class="form__input form__input_password" type="text" name="password" id="login-password" placeholder="Введите пароль" required minlength="2" maxlength="30">
+        <span class="form__error form__error_no-symbol">Длина пароля должна быть от 2 до 30 символов</span>
+
+        <button type="submit" class="button form__button form__button_disabled">Войти</button>
+        <p class="form__message-change-form">или <span class="form__go-to-auth" href="#">Зарегистрироваться</span></p>
+      </form>
+
   <!-- Образец формы для регистрации -->
   <div class="popup popup__registration">
     <div class="popup__content">
@@ -241,9 +260,14 @@
         <input class="form__input form__input_name" type="text" name="name" id="reg-name" placeholder="Введите своё имя" required minlength="2" maxlength="30">
         <span class="form__error form__error_no-symbol">Имя должно быть от 2 дл 30 символов</span>
 
-        <button type="submit" class="lala button form__button form__button_disabled">Зарегистрироваться</button>
-        <p class="form__message-change-form">или <a class="form__go-to-auth" href="#">Войти</a></p>
+        <button type="submit" class="button form__button form__button_disabled">Зарегистрироваться</button>
+        <p class="form__message-change-form">или <span class="form__go-to-auth" href="#">Войти</span></p>
       </form>
+
+    </div>
+  </div>
+
+
 
     </div>
   </div>

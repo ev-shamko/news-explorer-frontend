@@ -1,6 +1,11 @@
 import "../css/style.css";
 import MainApi from "../js/api/MainApi";
 import FormRegistration from "../js/components/FormRegistration/FormRegistration";
+import FormLogin from "../js/components/FormLogin/FormLogin";
+
+const getAuthState = () => localStorage.getItem('token');
+//const getAuthState = () => localStorage.getItem('token') && validator.isJWT(localStorage.getItem('token'));
+console.log(getAuthState());
 
 const mainApi = new MainApi({
     baseUrl: 'https://api.news-collection.space',
@@ -14,11 +19,19 @@ const formRegistration = new FormRegistration(
         inputsClass: '.form__input',
         submitButtonClass: '.form__button',
     },
-    mainApi.signup,
+    mainApi.signin,
 );
 
-formRegistration.test();
-formRegistration.testForm();
+const formLogin = new FormLogin(
+    {
+        formName: document.forms.login,
+        inputsClass: '.form__input',
+        submitButtonClass: '.form__button',
+    },
+    mainApi.signin,
+);
+
+formLogin.testForm();
 
 const menuOpenButton = document.querySelector('.header__menu-button');
 const menuInHeader = document.querySelector(".header__menu-container");

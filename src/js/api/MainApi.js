@@ -7,6 +7,7 @@ export default class MainApi {
         this.urlSignin = this.baseUrl + '/signin';
 
         this.signup = this._signup.bind(this);
+        this.signin = this._signin.bind(this);
     }
 
     test() {
@@ -47,7 +48,7 @@ export default class MainApi {
             })
             .catch((err) => {
                 console.log(err); // надо подумать, как это лучше обработать
-                console.log(err.json());
+                //console.log(err.json());
             });
     }
 
@@ -76,5 +77,55 @@ export default class MainApi {
 // createArticle
 // removeArticle удаляет статью.
 
+    // создание нового пользователя в бд
+    _signin(userData) {
+        console.log(`Singing in`);
+        console.log(userData);
+
+        return fetch('https://api.news-collection.space/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        })
+            .then(res => {
+                if (res.ok) {
+                    console.log('you are logged in');
+                    return res.json();
+                }
+                return Promise.reject(`Ошибка: ${res.status}`); //  ${res.message} - не получается вытащить
+            })
+            .catch((err) => {
+                console.log(err); // надо подумать, как это лучше обработать
+            });
+    }
+    /*
+Пример объекта в теле запроса для авторизации
+{
+    "email": "14@yandex.ru",
+    "password": "12345678"
+}
+
+Пример всего fetch-запроса:
+
+fetch('https://api.news-collection.space/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify({
+                email: '01@yandex.ru',
+                password: '12345678'
+            }),
+        })
+
+
+Пример тела ответа по результатам успешной регистрации:
+{
+    "message": "Вы успешно залогинились"
+}
+ */
 
 }
