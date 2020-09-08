@@ -7,18 +7,18 @@
         "build": "cross-env NODE_ENV=production rimraf dist && webpack --mode production",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
         "deploy": "cross-env NODE_ENV=production gh-pages -d dist",
-        "depfront": "npm run build && scp -r ./dist/* ev-shamko@84.201.149.81:/home/ev-shamko/mesto-frontend"
+        "depfront": "npm run build && scp -r ./dist/* ev-shamko@130.193.44.198:/home/ev-shamko/news-explorer-frontend"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ev-shamko/servis-mesto.git"
+        "url": "git+https://github.com/ev-shamko/news-explorer-frontend.git"
     },
     "author": "ev-shamko",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/ev-shamko/servis-mesto/issues"
+        "url": "https://github.com/ev-shamko/news-explorer-frontend/issues"
     },
-    "homepage": "https://ev-shamko.github.io/servis-mesto",
+    "homepage": "https://ev-shamko.github.io/news-explorer-frontend#readme",
     "devDependencies": {
         "@babel/cli": "~7.10.1",
         "@babel/core": "~7.10.2",
@@ -32,7 +32,7 @@
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-plugin-import": "^2.22.0",
         "file-loader": "~6.0.0",
-        "gh-pages": "~2.2.0",
+        "gh-pages": "^2.2.0",
         "html-webpack-plugin": "~4.3.0",
         "image-webpack-loader": "~6.0.0",
         "mini-css-extract-plugin": "~0.9.0",
