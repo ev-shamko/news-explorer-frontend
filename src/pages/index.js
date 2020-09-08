@@ -17,16 +17,16 @@ const formRegistration = new FormRegistration(
     {
         formName: document.forms.registration,
         inputsClass: '.form__input',
-        submitButtonClass: '.form__button',
+        //submitButtonClass: '.form__button',
     },
-    mainApi.signin,
+    mainApi.signup,
 );
 
 const formLogin = new FormLogin(
     {
         formName: document.forms.login,
         inputsClass: '.form__input',
-        submitButtonClass: '.form__button',
+        //submitButtonClass: '.form__button',
     },
     mainApi.signin,
 );
@@ -36,7 +36,7 @@ formLogin.testForm();
 const menuOpenButton = document.querySelector('.header__menu-button');
 const menuInHeader = document.querySelector(".header__menu-container");
 const buttonCloseForm = document.querySelector(".popup__close");
-const popupBlock = document.querySelector(".popup");
+const popupBlock = document.querySelector(".popup__login");
 const buttonAuth = document.querySelector(".menu__auth-button");
 
 function manageMenuVisibility() {

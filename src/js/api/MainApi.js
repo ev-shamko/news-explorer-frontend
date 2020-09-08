@@ -18,42 +18,25 @@ export default class MainApi {
 
     // создание нового пользователя в бд
     _signup(userData) {
-        //console.log(`MainApi.signup() is running. UserData:`);
-        //console.log(userData);
-
-        return fetch('https://api.news-collection.space/signup', {
+        return fetch(this.urlSignup, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userData),
         })
-            .then(res => {
-                if (res.ok) {
-                    console.log('registration was successful');
-                    // console.log(res.json()); - более-менее вернёт объект ответа
-                    // console.log(JSON.stringify(res.body)); // так в консоли отобразится пустой объект
-
-                    /*  Вот так объект нормально соберётся
-
-                  .then(res => res.json())
-                  .then((result) => {
-                   console.log(result);
-                  })
-
-                    */
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`); //  ${res.message} - не получается вытащить
+            .then(res => res.json())
+            .then((result) => {
+                console.log(result);
             })
             .catch((err) => {
-                console.log(err); // надо подумать, как это лучше обработать
-                //console.log(err.json());
+                console.log('При регистрации нового пользователя произошла ошибка');
+                console.log(err);
             });
     }
 
     /*
-Пример запроса для регистрации
+Пример объекта для создания нового пользователя
 {
     "name": "Test User 14",
     "email": "14@yandex.ru",
@@ -71,33 +54,23 @@ export default class MainApi {
 
  */
 
-// signin
-// getUserData
-// getArticles
-// createArticle
-// removeArticle удаляет статью.
 
     // создание нового пользователя в бд
     _signin(userData) {
-        console.log(`Singing in`);
-        console.log(userData);
-
-        return fetch('https://api.news-collection.space/signin', {
+        return fetch(this.urlSignin, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userData),
         })
-            .then(res => {
-                if (res.ok) {
-                    console.log('you are logged in');
-                    return res.json();
-                }
-                return Promise.reject(`Ошибка: ${res.status}`); //  ${res.message} - не получается вытащить
+            .then(res => res.json())
+            .then((result) => {
+                console.log(result);
             })
             .catch((err) => {
-                console.log(err); // надо подумать, как это лучше обработать
+                console.log('При регистрации нового пользователя произошла ошибка');
+                console.log(err);
             });
     }
     /*
@@ -113,7 +86,6 @@ fetch('https://api.news-collection.space/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify({
                 email: '01@yandex.ru',
@@ -127,5 +99,12 @@ fetch('https://api.news-collection.space/signin', {
     "message": "Вы успешно залогинились"
 }
  */
+
+    //Что ещё нужно написать:
+
+// getUserData
+// getArticles
+// createArticle
+// removeArticle
 
 }
