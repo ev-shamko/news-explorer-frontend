@@ -1,6 +1,9 @@
 # news-explorer-frontend
 Фронтенд дипломного проекта для Яндекс Практикума
 
+Демо:
+[https://ev-shamko.github.io/news-explorer-frontend](https://ev-shamko.github.io/news-explorer-frontend)
+
 #### В настроящий момент реализовано:
 Можно зарегистрироваться. Новый пользователь создастся в бд на виртуальной машине.
 Можно авторизироваться и получить jwt-токен.
