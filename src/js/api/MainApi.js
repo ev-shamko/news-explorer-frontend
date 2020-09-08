@@ -6,6 +6,8 @@ export default class MainApi {
         this.urlSignup = this.baseUrl + '/signup'; // 'https://api.news-collection.space/signup'
         this.urlSignin = this.baseUrl + '/signin';
 
+        this._funcAfterRegShowMessage = objParams.funcAfterRegShowMessage;
+
         this.signup = this._signup.bind(this);
         this.signin = this._signin.bind(this);
     }
@@ -28,6 +30,7 @@ export default class MainApi {
             .then(res => res.json())
             .then((result) => {
                 console.log(result);
+                this._funcAfterRegShowMessage();
             })
             .catch((err) => {
                 console.log('При регистрации нового пользователя произошла ошибка');
@@ -69,7 +72,7 @@ export default class MainApi {
                 console.log(result);
             })
             .catch((err) => {
-                console.log('При регистрации нового пользователя произошла ошибка');
+                console.log('При авторизации произошла ошибка');
                 console.log(err);
             });
     }

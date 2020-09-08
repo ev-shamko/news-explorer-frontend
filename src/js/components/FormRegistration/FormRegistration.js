@@ -5,7 +5,6 @@ export default class FormRegistration extends Form {
         super(options);
 
         this._regFunc = apiSignup;
-        this._funcChangePopup = funcChangePopup;
         this._setEventListeners();
     }
 
@@ -24,6 +23,7 @@ export default class FormRegistration extends Form {
             };
 
             this._regFunc(objRegInfo);  // отправляет запрос на регистрацию на сервер
+            //this._funcChangePopup();
         });
     }
 

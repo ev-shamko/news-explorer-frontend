@@ -9,11 +9,7 @@ import Popup from "../js/components/Popup/Popup";
 //const getAuthState = () => localStorage.getItem('token') && validator.isJWT(localStorage.getItem('token'));
 //console.log(getAuthState());
 
-const mainApi = new MainApi({
-    baseUrl: 'https://api.news-collection.space',
-});
 
-mainApi.test(); // сигнализирует о том, что класс успешнос оздан
 
 const popupRegistration = new Popup({
     popupBlock: '.popup__registration',
@@ -38,6 +34,12 @@ const popupMessage = new Popup({
     messagePopup: false,
 });
 
+const mainApi = new MainApi({
+    baseUrl: 'https://api.news-collection.space',
+    funcAfterRegShowMessage: popupRegistration.openMessagePopup,
+});
+
+mainApi.test(); // сигнализирует о том, что класс успешнос оздан
 
 const formRegistration = new FormRegistration(
     {
