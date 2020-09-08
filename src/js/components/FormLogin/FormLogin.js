@@ -24,7 +24,7 @@ export default class FormLogin extends Form {
                 "password": this._form.password.value,
             };
 
-            this.loginFunc(objRegInfo);
+            this.loginFunc(objRegInfo); // отправляет запрос на авторизацию на сервер
         });
     }
 }

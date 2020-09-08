@@ -2,16 +2,42 @@ import "../css/style.css";
 import MainApi from "../js/api/MainApi";
 import FormRegistration from "../js/components/FormRegistration/FormRegistration";
 import FormLogin from "../js/components/FormLogin/FormLogin";
+import Popup from "../js/components/Popup/Popup";
 
-const getAuthState = () => localStorage.getItem('token');
+/* На случай если буду класть токен в localstorage */
+//const getAuthState = () => localStorage.getItem('token');
 //const getAuthState = () => localStorage.getItem('token') && validator.isJWT(localStorage.getItem('token'));
-console.log(getAuthState());
+//console.log(getAuthState());
 
 const mainApi = new MainApi({
     baseUrl: 'https://api.news-collection.space',
 });
 
 mainApi.test(); // сигнализирует о том, что класс успешнос оздан
+
+const popupRegistration = new Popup({
+    popupBlock: '.popup__registration',
+    classToOpen: 'popup_is-opened',
+    anotherAuthPopup: '.popup__login',
+    messagePopup: '.popup__message',
+});
+
+popupRegistration.test();
+
+const popupLogin = new Popup({
+    popupBlock: '.popup__login',
+    classToOpen: 'popup_is-opened',
+    anotherAuthPopup: '.popup__registration',
+    messagePopup: '.popup__message',
+});
+
+const popupMessage = new Popup({
+    popupBlock: '.popup__message',
+    classToOpen: 'popup_is-opened',
+    anotherAuthPopup: '.popup__login',
+    messagePopup: false,
+});
+
 
 const formRegistration = new FormRegistration(
     {
@@ -20,6 +46,7 @@ const formRegistration = new FormRegistration(
         //submitButtonClass: '.form__button',
     },
     mainApi.signup,
+    popupRegistration.openMessagePopup
 );
 
 const formLogin = new FormLogin(
@@ -30,8 +57,6 @@ const formLogin = new FormLogin(
     },
     mainApi.signin,
 );
-
-formLogin.testForm();
 
 const menuOpenButton = document.querySelector('.header__menu-button');
 const menuInHeader = document.querySelector(".header__menu-container");
@@ -44,10 +69,6 @@ function manageMenuVisibility() {
     menuOpenButton.classList.toggle('header__menu-button_cross-white');
 }
 
-function openForm() {
-    popupBlock.classList.add('popup_is-opened');
-}
-
 function closeForm() {
     popupBlock.classList.remove('popup_is-opened');
 }
@@ -55,7 +76,7 @@ function closeForm() {
 menuOpenButton.addEventListener('click', manageMenuVisibility);
 buttonCloseForm.addEventListener('click', closeForm);
 buttonAuth.addEventListener('click', () => {
-    openForm();
+    popupLogin.openPopup();
 
     // временный фикс бага с расползающейся вёрсткой из-за мобильного меню. Меню нужно переделать
     if (menuInHeader.classList.contains('header__menu-container_displayed')) {

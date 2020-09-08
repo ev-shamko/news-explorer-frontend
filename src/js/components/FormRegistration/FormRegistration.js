@@ -1,10 +1,11 @@
 import Form from "../Form/Form";
 
 export default class FormRegistration extends Form {
-    constructor(options, apiSignup) {
+    constructor(options, apiSignup, funcChangePopup) {
         super(options);
 
-        this.regFunc = apiSignup;
+        this._regFunc = apiSignup;
+        this._funcChangePopup = funcChangePopup;
         this._setEventListeners();
     }
 
@@ -22,7 +23,7 @@ export default class FormRegistration extends Form {
                 "password": this._form.password.value,
             };
 
-            this.regFunc(objRegInfo);
+            this._regFunc(objRegInfo);  // отправляет запрос на регистрацию на сервер
         });
     }
 
