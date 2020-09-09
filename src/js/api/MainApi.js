@@ -76,11 +76,11 @@ export default class MainApi {
             .then(res => res.json())
             .then((result) => {
                 this._funcCloseLoginPopup();
-
             })
             .then(() => {
                 this._getUserData()
                     .then((obj) => {
+                        /* Этот блок нужно переиспользовать при загрузке articles.html, поэтому эти 3 метода нужно упаковать в один метод  */
                         this._funcResetHeaderMenu(); // перерисует меню, чтобы убрать слушатель событий с кнопки авторизации (иначе при нажатии на неё вылезет попап для авторизации, а мы уже авторизованы)
                         this._funcShowButtonSavedArticles(); // отобразит кнопку перехода к сохранённым статьям
                         this._funcPutUserNameInAuthBtn(obj.name); // вставит имя пользователя в кнопку авторизации
