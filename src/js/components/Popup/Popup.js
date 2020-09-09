@@ -24,12 +24,10 @@ export default class Popup {
     }
 
     _openPopup() {
-        console.log('opening...');
         this._popup.classList.add(this._classToOpen);
     }
 
     _closePopup() {
-        console.log('closing...');
         this._popup.classList.remove(this._classToOpen);
     }
 

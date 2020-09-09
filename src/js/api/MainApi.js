@@ -2,25 +2,31 @@
 
 export default class MainApi {
     constructor(objParams) {
-        this.baseUrl = objParams.baseUrl; // 'https://api.news-collection.space'
-        this.urlSignup = this.baseUrl + '/signup'; // 'https://api.news-collection.space/signup'
-        this.urlSignin = this.baseUrl + '/signin';
+        this._baseUrl = objParams.baseUrl; // 'https://api.news-collection.space'
+        this._urlSignup = this._baseUrl + '/signup'; // 'https://api.news-collection.space/signup'
+        this._urlSignin = this._baseUrl + '/signin'; // 'https://api.news-collection.space/signin'
+        this._urlUsersMe = this._baseUrl + '/users/me'; // 'https://api.news-collection.space/users/me'
 
         this._funcAfterRegShowMessage = objParams.funcAfterRegShowMessage;
+        this._funcCloseLoginPopup = objParams.funcCloseLoginPopup;
+        this._funcShowButtonSavedArticles = objParams.funcShowButtonSavedArticles;
+        this._funcResetHeaderMenu = objParams.funcResetHeaderMenu;
+        this._funcPutUserNameInAuthBtn = objParams.funcPutUserNameInAuthBtn;
 
         this.signup = this._signup.bind(this);
         this.signin = this._signin.bind(this);
+
     }
 
     test() {
-        console.log(`Класс MainApi успешно создан. Базовая ссылка: ` + this.baseUrl);
-        console.log(this.urlSignup);
-        console.log(this.urlSignin);
+        console.log(`Класс MainApi успешно создан. Базовая ссылка: ` + this._baseUrl);
+        console.log(this._urlSignup);
+        console.log(this._urlSignin);
     }
 
     // создание нового пользователя в бд
     _signup(userData) {
-        return fetch(this.urlSignup, {
+        return fetch(this._urlSignup, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -60,7 +66,7 @@ export default class MainApi {
 
     // создание нового пользователя в бд
     _signin(userData) {
-        return fetch(this.urlSignin, {
+        return fetch(this._urlSignin, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +75,16 @@ export default class MainApi {
         })
             .then(res => res.json())
             .then((result) => {
-                console.log(result);
+                this._funcCloseLoginPopup();
+
+            })
+            .then(() => {
+                this._getUserData()
+                    .then((obj) => {
+                        this._funcResetHeaderMenu(); // перерисует меню, чтобы убрать слушатель событий с кнопки авторизации (иначе при нажатии на неё вылезет попап для авторизации, а мы уже авторизованы)
+                        this._funcShowButtonSavedArticles(); // отобразит кнопку перехода к сохранённым статьям
+                        this._funcPutUserNameInAuthBtn(obj.name); // вставит имя пользователя в кнопку авторизации
+                    })
             })
             .catch((err) => {
                 console.log('При авторизации произошла ошибка');
@@ -103,9 +118,30 @@ fetch('https://api.news-collection.space/signin', {
 }
  */
 
+
+
+    // получить данные о пользователе, которому выдан текущий jwt из кукии
+    _getUserData() {
+        return fetch(this._urlUsersMe, {
+            method: 'GET',
+            credentials: 'include',
+        })
+            .then(res => res.json())
+            .then((result) => {
+                console.log(result);
+                console.log(result.name);
+                console.log(typeof(result.name));
+                return result;
+            })
+            .catch((err) => {
+                console.log('Вы попытались получить данные о своём профиле, но произошла ошибка');
+                console.log(err);
+            });
+    }
+
+
     //Что ещё нужно написать:
 
-// getUserData
 // getArticles
 // createArticle
 // removeArticle

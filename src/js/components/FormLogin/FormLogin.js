@@ -4,8 +4,6 @@ export default class FormLogin extends Form {
     constructor(options, apiLogin) {
         super(options);
 
-        console.log(this._form);
-
         this.loginFunc = apiLogin;
         this._setEventListeners();
     }

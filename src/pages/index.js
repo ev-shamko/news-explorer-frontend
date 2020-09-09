@@ -3,13 +3,20 @@ import MainApi from "../js/api/MainApi";
 import FormRegistration from "../js/components/FormRegistration/FormRegistration";
 import FormLogin from "../js/components/FormLogin/FormLogin";
 import Popup from "../js/components/Popup/Popup";
+import HeaderMenu from "../js/components/HeaderMenu/HeaderMenu";
 
 /* На случай если буду класть токен в localstorage */
 //const getAuthState = () => localStorage.getItem('token');
 //const getAuthState = () => localStorage.getItem('token') && validator.isJWT(localStorage.getItem('token'));
 //console.log(getAuthState());
 
-
+const headerMenu = new HeaderMenu({
+    buttonAuth: '.menu__auth-button',
+    authButtonNamePlace: '.menu__username',
+    menuContainer: '.header__menu-container',
+    buttonSavedArticles: '.menu__page_saved-art',
+    btnVisibilityClass: 'menu__page_hidden',
+});
 
 const popupRegistration = new Popup({
     popupBlock: '.popup__registration',
@@ -17,8 +24,6 @@ const popupRegistration = new Popup({
     anotherAuthPopup: '.popup__login',
     messagePopup: '.popup__message',
 });
-
-popupRegistration.test();
 
 const popupLogin = new Popup({
     popupBlock: '.popup__login',
@@ -37,9 +42,11 @@ const popupMessage = new Popup({
 const mainApi = new MainApi({
     baseUrl: 'https://api.news-collection.space',
     funcAfterRegShowMessage: popupRegistration.openMessagePopup,
+    funcCloseLoginPopup: popupLogin.closePopup,
+    funcShowButtonSavedArticles: headerMenu.showButtonSavedArticles,
+    funcResetHeaderMenu: headerMenu.resetHeaderMenu,
+    funcPutUserNameInAuthBtn: headerMenu.putUserNameInAuthBtn,
 });
-
-mainApi.test(); // сигнализирует о том, что класс успешнос оздан
 
 const formRegistration = new FormRegistration(
     {
@@ -85,3 +92,7 @@ buttonAuth.addEventListener('click', () => {
         manageMenuVisibility();
     }
 });
+
+
+// headerMenu._resetHeaderMenu(); // работает и сбрасывает слушатель событий с кнопки авторизации
+// headerMenu._putUserNameInAuthBtn('Hello World'); // прекрасно работает
