@@ -43,4 +43,4 @@ function openMenu() {
 menuOpenButton.addEventListener('click', openMenu);
 
 /* Фикс! Делаем иконку логаута чёрной (в кнопке авторизации в хедэре). Нужно, потому что при перерисовке кнопки авторизации стандартно подгружается белая иконка */
-document.querySelector('.menu__logout-icon').setAttribute('src', '../images/logout-black.png');
+document.querySelector('.menu__logout-icon').setAttribute('src', './images/logout-black.png');

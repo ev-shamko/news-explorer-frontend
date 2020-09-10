@@ -80,7 +80,6 @@ export default class MainApi {
             .then(() => {
                 this._getUserData()
                     .then((obj) => {
-                        /* Этот блок нужно переиспользовать при загрузке articles.html, поэтому эти 3 метода нужно упаковать в один метод  */
                         this._funcResetHeaderMenu(); // перерисует меню, чтобы убрать слушатель событий с кнопки авторизации (иначе при нажатии на неё вылезет попап для авторизации, а мы уже авторизованы)
                         this._funcShowButtonSavedArticles(); // отобразит кнопку перехода к сохранённым статьям
                         this._funcPutUserNameInAuthBtn(obj.name); // вставит имя пользователя в кнопку авторизации
@@ -144,6 +143,21 @@ fetch('https://api.news-collection.space/signin', {
 
 // getArticles
 // createArticle
+
+    /*
+
+  title: 'String',
+  text: 'description',
+  *** - date: publishedAt - type: Date,
+  source: 'Name of Website',
+  link: 'url', // ! это поле можно сделать уникальным потом
+  image: 'link img',
+  *** - keyword: 'string', // minlength: 2
+  owner: 'owner id',
+
+     */
+
+
 // removeArticle
 
 }
