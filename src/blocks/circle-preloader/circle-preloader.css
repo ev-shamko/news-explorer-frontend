@@ -1,0 +1,10 @@
+@import url(_displayed/circle-preloader_displayed.css);
+@import url(__animation/circle-preloader__animation.css);
+@import url(__message/circle-preloade__message.css);
+
+.circle-preloader {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+

@@ -8,21 +8,18 @@ export default class FormLogin extends Form {
         this._setEventListeners();
     }
 
-    testForm() {
-        console.log('creating FormLogin class');
-        console.log(this._form);
-    }
-
     _setEventListeners() {
         this._form.addEventListener('submit', (event) => {
             event.preventDefault(); // чтобы страница не перезагрузилась
 
-            const objRegInfo = {
+            console.log(`Сработал листенер формы авторизации`);
+
+            const objLoginInfo = {
                 "email": this._form.email.value,
                 "password": this._form.password.value,
             };
 
-            this.loginFunc(objRegInfo); // отправляет запрос на авторизацию на сервер
+            this.loginFunc(objLoginInfo); // отправляет запрос на авторизацию на сервер
         });
     }
 }

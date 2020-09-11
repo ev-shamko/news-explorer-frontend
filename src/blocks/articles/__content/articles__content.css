@@ -1,6 +1,10 @@
+@import url(_displayed/articles__content_displayed.css);
+
 .articles__content {
     max-width: 1232px;
     margin: 0px auto;
+
+    display: none;
 }
 
 

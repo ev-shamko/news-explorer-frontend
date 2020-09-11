@@ -2,6 +2,7 @@ import "../css/style.css";
 import MainApi from "../js/api/MainApi";
 import FormRegistration from "../js/components/FormRegistration/FormRegistration";
 import FormLogin from "../js/components/FormLogin/FormLogin";
+import FormSearch from "../js/components/FormSearch/FormSearch";
 import Popup from "../js/components/Popup/Popup";
 import HeaderMenu from "../js/components/HeaderMenu/HeaderMenu";
 import NewsCard from "../js/components/NewsCard/NewsCard";
@@ -39,6 +40,8 @@ document.querySelector('.articles__container').innerHTML += catCard;
 const newsCardList = new NewsCardList({
         articlesContainer: '.articles__container',
         buttonShowMore: '.articles__show-more-button',
+        preloaderClass: '.circle-preloader',
+        zeroResultsClass: '.zero-results',
     },
     newsCard.сreateFoundArticle,
 );
@@ -88,7 +91,6 @@ const formRegistration = new FormRegistration(
     {
         formName: document.forms.registration,
         inputsClass: '.form__input',
-        //submitButtonClass: '.form__button',
     },
     mainApi.signup,
     popupRegistration.openMessagePopup
@@ -98,9 +100,17 @@ const formLogin = new FormLogin(
     {
         formName: document.forms.login,
         inputsClass: '.form__input',
-        //submitButtonClass: '.form__button',
     },
     mainApi.signin,
+);
+
+const formSearch = new FormSearch(
+    {
+        formName: document.forms.search,
+        inputsClass: '.search__input',
+    },
+    newsApi.fetchNews,
+    newsCardList.showResults,
 );
 
 const menuOpenButton = document.querySelector('.header__menu-button');
@@ -136,7 +146,7 @@ buttonAuth.addEventListener('click', () => {
 // newsApi.fetchNews(''); // должен вернуть ошибку, сообщающую о пустом запросе
 // newsApi.fetchNews('ормкуджырпкгурпгукщжпржу'); // вернёт объект ответа со статусом ОК и нулём найденный статей
 
-
+/*
 newsApi.fetchNews('cats')
     .then((resObj) => {
         newsCardList.showResults(resObj);
@@ -144,12 +154,7 @@ newsApi.fetchNews('cats')
     })
     .then(() => { console.log('что происходит?')} )
     .catch((err) => console.log(err));
-
-console.log(`Следующая команда в index.js`); // эта команда не выполняется
-console.log(`GFYB`);
-
-const fff = `fff`;
-console.log(fff);
+*/
 
 //newsCardList.showResults(newsApi.fetchNews('котята'));
 
@@ -157,3 +162,10 @@ console.log(fff);
 
 // headerMenu._resetHeaderMenu(); // работает и сбрасывает слушатель событий с кнопки авторизации
 // headerMenu._putUserNameInAuthBtn('Hello World'); // прекрасно работает
+
+/*
+document.forms.search.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log(`ведется поиск новостей`);
+});
+*/

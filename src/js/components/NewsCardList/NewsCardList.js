@@ -1,32 +1,88 @@
 export default class NewsCardList {
     constructor(objParams, funcCreateCard) {
-        this._articlesContainer = objParams.articlesContainer;
-        //console.log(this._articlesContainer);
-        this._buttonShowMore = document.querySelector(`${objParams.buttonShowMoreer}`);
+        this._articlesContainerClass = objParams.articlesContainer;
+        // this._buttonShowMore = document.querySelector(`${objParams.buttonShowMoreer}`);
+        this._preloaderClass = objParams.preloaderClass;
+        this._zeroResultsClass = objParams.zeroResultsClass;
+
         this._funcCreateCard = funcCreateCard;
 
         this.showResults = this._showResults.bind(this);
     }
 
+    _resultsContainer(arg) {
+        const resultsBlock = document.querySelector(`${this._articlesContainerClass}`);
+
+    }
+
+    // отображает/скрывает блок с прелоудером
+    _preloader(arg) {
+        const preloader = document.querySelector(`${this._preloaderClass}`);
+        const visibilityClass = (this._preloaderClass + '_displayed').slice(1); // получаем название класса без точки в начале: 'circle-preloader_displayed'
+        console.log(`preloader visibility class is ${visibilityClass}`);
+
+        if (arg === 'show') {
+            preloader.classList.add(visibilityClass);
+            return console.log(`now preloader must be visible`);
+        }
+
+        if (arg = 'hide') {
+            preloader.classList.remove(visibilityClass);
+            return console.log(`now preloader must be hidden`);
+        }
+
+        return console.log('some error occurred during managing preloader visibility');
+    }
+
+    // отображает/скрывает блок с сообщением "Ничего не найдено"
+    _zeroResultsBlock(arg) {
+        const zeroResultsBlock = document.querySelector(`${this._zeroResultsClass}`);
+        const visibilityClass = (this._zeroResultsClass + '_displayed').slice(1); // получаем название класса без точки в начале: 'zero-results_displayed'
+
+        if (arg === 'show') {
+            zeroResultsBlock.classList.add(visibilityClass);
+            return console.log(`now zeroResultsBlock must be visible`);
+        }
+
+        if (arg = 'hide') {
+            zeroResultsBlock.classList.remove(visibilityClass);
+            return console.log(`now zeroResultsBlock must be hidden`);
+        }
+
+        return console.log('some error occurred during managing zeroResultsBlock visibility');
+    }
+
     // принимает объект ответа от NewsAPI
     _showResults(obj) {
-        /*
+
+        this._preloader('hide');
+        this._zeroResultsBlock('hide');
+        const articlesContainer = document.querySelector(`${this._articlesContainerClass}`);
+        articlesContainer.innerHTML = '';
+
+        this._preloader('show');
+
+        const zeroResultsBlock = document.querySelector(`${this._zeroResultsClass}`);
+
+
         if (obj.status !== 'ok') {
             return console.log('Принят объект со статусом не ок. Хотя вообще-то он даже прийти в эту функцию не должен был');
         }
 
         if (obj.totalResults === 0) {
-            return console.log('Найдено ноль статей. Необходимо отобразить блок с сообщением об отсутствии результатов');
+            this._preloader('hide');
+            this._zeroResultsBlock('show');
+            return console.log('Найдено ноль статей');
         }
-*/
+
         console.log(`Найдёно ${obj.totalResults} статей`);
 
         // сохраняем эти две штуки в отдельные переменные, т.к. в forEach this указывает на document
-        const articlesContainer = document.querySelector(`${this._articlesContainer}`);
+
         const funcCreateCard = this._funcCreateCard;
 
         // удаляет карточки из предыдущей поисковой выдачи
-        articlesContainer.innerHTML = '';
+
 
         console.log(`Начинаем добавление карточек после очистки предыдущих результатов`);
 
@@ -34,6 +90,7 @@ export default class NewsCardList {
         obj.articles.forEach(function (article) {
             articlesContainer.appendChild(funcCreateCard(article));
         });
+        this._preloader('hide');
 
         console.log(`Завершено добавление результатов поиска на страницу`);
     }

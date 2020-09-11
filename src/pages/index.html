@@ -45,16 +45,16 @@
           <h3 class="search__title">Что в мире творится?</h3>
           <p class="search__subtitle">Находите самые свежие статьи на&nbspлюбую тему и сохраняйте в
             своём&nbspличном&nbspкабинете.</p>
-          <div class="search__field">
+          <form class="search__field" name="search">
             <input class="search__input" name="searchinput" placeholder="Введите тему новости">
-            <button class="search__button">Искать</button>
-          </div>
+            <button class="search__button" type="submit">Искать</button>
+          </form>
         </div>
       </section>
 
       <!-- Блок выдачи найденных новостей -->
       <section class="articles">
-        <div class="articles__content">
+        <div class="articles__content articles__content_displayed">
           <h2 class="articles__title">Результаты поиска</h2>
 
           <!-- Контейнер с карточками новостей -->
@@ -180,8 +180,21 @@
               </div>
             </div>
           </div>
+          <button class="articles__show-more-button">Показать ещё</button>
         </div>
-        <button class="articles__show-more-button">Показать ещё</button>
+        <!-- Прелоудер -->
+        <div class="circle-preloader">
+          <i class="circle-preloader__animation"></i>
+          <p class="circle-preloader__message">Идет поиск новостей...</p>
+        </div>
+        <!-- Блок с сообщением: "Ничего не найдено" -->
+        <div class="zero-results">
+          <img class="zero-results__icon" src="./images/not-found.png" alt="Иконка грустной лупы"></img>
+          <h4 class="zero-results__header">Ничего не найдено</h4>
+          <p class="zero-results__message">К сожалению, по вашему запросу
+            ничего не найдено.</p>
+        </div>
+
       </section>
 
       <!-- Блок с информацией об авторе -->

@@ -8,10 +8,6 @@ export default class FormRegistration extends Form {
         this._setEventListeners();
     }
 
-    testForm() {
-        console.log(this._form);
-    }
-
     _setEventListeners() {
         this._form.addEventListener('submit', (event) => {
             event.preventDefault(); // чтобы страница не перезагрузилась

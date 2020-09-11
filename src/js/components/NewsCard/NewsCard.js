@@ -71,7 +71,7 @@ export default class NewsCard {
 
         cardElem.innerHTML = cardInnerMarkup;
 
-
+        // это лучше в отдельный метод
         cardElem.querySelector('.card__illustration').setAttribute('style', `background-image: url('${articleInfo.imgUrl}')`);
         cardElem.querySelector('.card__header').textContent = articleInfo.title;
         cardElem.querySelector('.card__text').textContent = articleInfo.description;
