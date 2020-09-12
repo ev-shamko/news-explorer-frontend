@@ -25,7 +25,10 @@ const mainApi = new MainApi({
 mainApi._getUserData()
     .then((objUserData) => {
         console.log(objUserData);
-        //headerMenu.putUserNameInAuthBtn(objUserData.name);
+        headerMenu.putUserNameInAuthBtn(objUserData.name);
+
+        /* Фикс! Делаем иконку логаута чёрной (в кнопке авторизации в хедэре). Нужно, потому что при перерисовке кнопки авторизации стандартно подгружается белая иконка */
+        document.querySelector('.menu__logout-icon').setAttribute('src', './images/logout-black.png');
     })
     .catch(err => console.log(err));
 
@@ -42,5 +45,4 @@ function openMenu() {
 
 menuOpenButton.addEventListener('click', openMenu);
 
-/* Фикс! Делаем иконку логаута чёрной (в кнопке авторизации в хедэре). Нужно, потому что при перерисовке кнопки авторизации стандартно подгружается белая иконка */
-document.querySelector('.menu__logout-icon').setAttribute('src', './images/logout-black.png');
+

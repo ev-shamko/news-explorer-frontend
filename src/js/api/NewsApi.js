@@ -13,43 +13,24 @@ export default class NewsApi {
         //this.processNewsResponce = this._processNewsResponce.bind(this);
     }
 
-    /* Нинада
-
-    _processNewsResponce(apiResponce) {
-        if (apiResponce.ok) {
-            apiResponce.json()
-                .then((res) => {
-                    console.log(res);
-                    return res; // вернёт стандартный объект ответа от newsapi.org со статьями
-                })
-        } else {
-            apiResponce.json()
-                .then((error) => {
-                    console.log(error);
-                    throw new Error(error.message);
-                })
-                .catch((apiResponce) => {
-                    console.error('Произошла ошибка при обращении к источнику новостей');
-                    return Promise.reject(new Error(apiResponce)); // вот эта строчка выведет в консоль подробное описание ошибки, если в ответ пришёл объект ошибки
-                });
-        }
-    }*/
-
     //keyword - строка, минимум 2 символа
     _fetchNews(keyword) {
-        return fetch(`https://nomoreparties.co/news/v2/everything?q=${keyword}&apiKey=4697cc8ce0e443c6b5027c6921de9a61`, { // `${this._baseUrl}everything?q=${keyword}&apiKey=${this._apiKey}`
+        return fetch(`${this._baseUrl}everything?q=${keyword}&apiKey=${this._apiKey}`, {
             headers: this._headers,
         })
             .then((res) => res.json())
-            .then((objResult) =>{
-                console.log(objResult)
+            .then((objResult) =>{ // этот then потом можно удалить
+                console.log(objResult);
+                localStorage.setItem('keyword', keyword);
                 return objResult;
             })
             .catch(err => console.log(err));
     }
 }
-/*
-const resObj = {
+
+/* Пример объекта ответа objResult:
+
+   {
     "status": "ok",
     "totalResults": 56,
     "articles":

@@ -13,38 +13,9 @@ import NewsApi from "../js/api/NewsApi";
 //const getAuthState = () => localStorage.getItem('token');
 //const getAuthState = () => localStorage.getItem('token') && validator.isJWT(localStorage.getItem('token'));
 //console.log(getAuthState());
-const newsCard = new NewsCard();
 
-/* //////////////////////////////// ТЕСТИРОВАНИЕ СОЗДАНИЯ РАЗМЕТКИ КАРТОЧКИ
+/* Раньше здесь создавались newsCard и  newsCardList */
 
-const cardObj = {
-    "source": {
-        "id": null,
-        "name": "CNET"
-    },
-    "author": "Amanda Kooser",
-    "title": "Scientists reveal grim secrets of ancient Egyptian animal mummies - CNET",
-    "description": "High-tech imaging let researchers unwrap mummies of a snake, a cat and a bird without disturbing the remains.",
-    "url": "https://www.cnet.com/news/scientists-reveal-grim-secrets-of-ancient-egyptian-animal-mummies/",
-    "urlToImage": "https://cnet4.cbsistatic.com/img/J0R9PxR7Wdeenp5yuW9QOOJWbX0=/2020/08/19/a9469c49-cadf-4a75-b196-98864dc34354/mummifiedcatjaw.jpg",
-    "publishedAt": "2020-08-20T16:49:00Z",
-    "content": "Researchers at Swansea University used a 3D scan to capture this view inside an ancient Egyptian mummy of a cobra. \\r\\nSwansea University\\r\\nA snake, a bird and a cat. Researchers at Swansea University i… [+2225 chars]"
-};
-
-const catCard = newsCard._сreateFoundArticle(cardObj);
-
-document.querySelector('.articles__container').innerHTML += catCard;
-
-/////////////////////////////////////////////////////////// */
-
-const newsCardList = new NewsCardList({
-        articlesContainer: '.articles__container',
-        buttonShowMore: '.articles__show-more-button',
-        preloaderClass: '.circle-preloader',
-        zeroResultsClass: '.zero-results',
-    },
-    newsCard.сreateFoundArticle,
-);
 
 const headerMenu = new HeaderMenu({
     buttonAuth: '.menu__auth-button',
@@ -86,6 +57,21 @@ const mainApi = new MainApi({
 
 const newsApi = new NewsApi();
 
+const newsCard = new NewsCard({
+    funcSaveArticle: mainApi.createArticle,
+});
+
+// console.log(mainApi.createArticle);
+
+const newsCardList = new NewsCardList({
+        articlesContainer: '.articles__container',
+        resultsContainer: '.articles__content',
+        buttonShowMore: '.articles__show-more-button',
+        preloaderClass: '.circle-preloader',
+        zeroResultsClass: '.zero-results',
+    },
+    newsCard.сreateFoundArticle,
+);
 
 const formRegistration = new FormRegistration(
     {
@@ -140,32 +126,13 @@ buttonAuth.addEventListener('click', () => {
 });
 
 
-///////////////////////////////////////////////////////// Тестирую добавление найденных карточек в блок выдачи карточек
+/* При загрузке index.html отправляется запрос на сервер на users/me - даже если у пользователя нет куки авторизации */
 
-// newsApi.fetchNews('котята'); // должен работать
-// newsApi.fetchNews(''); // должен вернуть ошибку, сообщающую о пустом запросе
-// newsApi.fetchNews('ормкуджырпкгурпгукщжпржу'); // вернёт объект ответа со статусом ОК и нулём найденный статей
-
-/*
-newsApi.fetchNews('cats')
-    .then((resObj) => {
-        newsCardList.showResults(resObj);
-        console.log('Завершил работу newsCardList.showResults() в index.js');
+mainApi._getUserData()
+    .then((objUserData) => {
+        console.log(objUserData);
+        headerMenu.resetHeaderMenu();
+        headerMenu.showButtonSavedArticles();
+        headerMenu.putUserNameInAuthBtn(objUserData.name);
     })
-    .then(() => { console.log('что происходит?')} )
-    .catch((err) => console.log(err));
-*/
-
-//newsCardList.showResults(newsApi.fetchNews('котята'));
-
-/////////////////////////////////////////////////////////
-
-// headerMenu._resetHeaderMenu(); // работает и сбрасывает слушатель событий с кнопки авторизации
-// headerMenu._putUserNameInAuthBtn('Hello World'); // прекрасно работает
-
-/*
-document.forms.search.addEventListener('submit', (event) => {
-    event.preventDefault();
-    console.log(`ведется поиск новостей`);
-});
-*/
+    .catch(err => console.log(err));

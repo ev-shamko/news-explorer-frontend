@@ -46,7 +46,7 @@
           <p class="search__subtitle">Находите самые свежие статьи на&nbspлюбую тему и сохраняйте в
             своём&nbspличном&nbspкабинете.</p>
           <form class="search__field" name="search">
-            <input class="search__input" name="searchinput" placeholder="Введите тему новости">
+            <input class="search__input" name="searchinput" placeholder="Введите тему новости" minlength="2">
             <button class="search__button" type="submit">Искать</button>
           </form>
         </div>
@@ -189,7 +189,7 @@
         </div>
         <!-- Блок с сообщением: "Ничего не найдено" -->
         <div class="zero-results">
-          <img class="zero-results__icon" src="./images/not-found.png" alt="Иконка грустной лупы"></img>
+          <img class="zero-results__icon" src="<%= require(`../images/not-found.png`) %>" alt="Иконка грустной лупы"></img>
           <h4 class="zero-results__header">Ничего не найдено</h4>
           <p class="zero-results__message">К сожалению, по вашему запросу
             ничего не найдено.</p>

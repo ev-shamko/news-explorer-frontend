@@ -6,6 +6,7 @@ export default class MainApi {
         this._urlSignup = this._baseUrl + '/signup'; // 'https://api.news-collection.space/signup'
         this._urlSignin = this._baseUrl + '/signin'; // 'https://api.news-collection.space/signin'
         this._urlUsersMe = this._baseUrl + '/users/me'; // 'https://api.news-collection.space/users/me'
+        this._urlCreateArticle = this._baseUrl + '/articles';// https://api.news-collection.space/articles
 
         this._funcAfterRegShowMessage = objParams.funcAfterRegShowMessage;
         this._funcCloseLoginPopup = objParams.funcCloseLoginPopup;
@@ -15,6 +16,8 @@ export default class MainApi {
 
         this.signup = this._signup.bind(this);
         this.signin = this._signin.bind(this);
+        this.createArticle = this._createArticle.bind(this);
+        //console.log(this.createArticle);
 
     }
 
@@ -90,6 +93,7 @@ export default class MainApi {
                 console.log(err);
             });
     }
+
     /*
 Пример объекта в теле запроса для авторизации
 {
@@ -118,7 +122,6 @@ fetch('https://api.news-collection.space/signin', {
  */
 
 
-
     // получить данные о пользователе, которому выдан текущий jwt из кукии
     _getUserData() {
         return fetch(this._urlUsersMe, {
@@ -129,7 +132,7 @@ fetch('https://api.news-collection.space/signin', {
             .then((result) => {
                 console.log(result);
                 console.log(result.name);
-                console.log(typeof(result.name));
+                console.log(typeof (result.name));
                 return result;
             })
             .catch((err) => {
@@ -143,6 +146,54 @@ fetch('https://api.news-collection.space/signin', {
 
 // getArticles
 // createArticle
+
+    _createArticle(obj) {
+
+        /*
+        const articleDate = {
+            title: '',
+            text: '',
+            date: '',
+            source: '',
+            link: '',
+            image: '',
+            keyword: localStorage.getItem('keyword'),
+        }
+
+         */
+
+        console.log('Вы пытаетесь сохранить статью:');
+        console.log(obj);
+
+        fetch(this._urlCreateArticle, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj),
+        })
+            .then(res => res.json())
+            .catch((err) => {
+                console.log('Проблема при попытке сохранения статьи');
+                console.log(err);
+            });
+    }
+
+    /*
+    Пример объекта для _createArticle()
+    {
+        title: '',
+        text: '',
+        date: '',
+        source: '',
+        link: '',
+        image: '',
+        keyword: '',
+    }
+
+
+     */
 
     /*
 

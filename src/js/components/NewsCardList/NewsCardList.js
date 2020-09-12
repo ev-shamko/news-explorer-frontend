@@ -1,6 +1,7 @@
 export default class NewsCardList {
     constructor(objParams, funcCreateCard) {
         this._articlesContainerClass = objParams.articlesContainer;
+        this._resultsContainerClass = objParams.resultsContainer;
         // this._buttonShowMore = document.querySelector(`${objParams.buttonShowMoreer}`);
         this._preloaderClass = objParams.preloaderClass;
         this._zeroResultsClass = objParams.zeroResultsClass;
@@ -10,138 +11,56 @@ export default class NewsCardList {
         this.showResults = this._showResults.bind(this);
     }
 
-    _resultsContainer(arg) {
-        const resultsBlock = document.querySelector(`${this._articlesContainerClass}`);
+    // этот метод скрывает/отображает block (строка: селектор блока с точкой) в зависимости от значения action: ('show', 'hide')
+    _toggleVisibility(classOfBlock, action) {
+        const block = document.querySelector(`${classOfBlock}`);
+        const visibilityClass = (classOfBlock + '_displayed').slice(1); // получаем название класса без точки в начале, например: 'zero-results_displayed'
 
-    }
-
-    // отображает/скрывает блок с прелоудером
-    _preloader(arg) {
-        const preloader = document.querySelector(`${this._preloaderClass}`);
-        const visibilityClass = (this._preloaderClass + '_displayed').slice(1); // получаем название класса без точки в начале: 'circle-preloader_displayed'
-        console.log(`preloader visibility class is ${visibilityClass}`);
-
-        if (arg === 'show') {
-            preloader.classList.add(visibilityClass);
-            return console.log(`now preloader must be visible`);
+        if (action === 'show') {
+            return block.classList.add(visibilityClass);
         }
 
-        if (arg = 'hide') {
-            preloader.classList.remove(visibilityClass);
-            return console.log(`now preloader must be hidden`);
+        if (action === 'hide') {
+            return block.classList.remove(visibilityClass);
         }
-
-        return console.log('some error occurred during managing preloader visibility');
-    }
-
-    // отображает/скрывает блок с сообщением "Ничего не найдено"
-    _zeroResultsBlock(arg) {
-        const zeroResultsBlock = document.querySelector(`${this._zeroResultsClass}`);
-        const visibilityClass = (this._zeroResultsClass + '_displayed').slice(1); // получаем название класса без точки в начале: 'zero-results_displayed'
-
-        if (arg === 'show') {
-            zeroResultsBlock.classList.add(visibilityClass);
-            return console.log(`now zeroResultsBlock must be visible`);
-        }
-
-        if (arg = 'hide') {
-            zeroResultsBlock.classList.remove(visibilityClass);
-            return console.log(`now zeroResultsBlock must be hidden`);
-        }
-
-        return console.log('some error occurred during managing zeroResultsBlock visibility');
     }
 
     // принимает объект ответа от NewsAPI
-    _showResults(obj) {
+    _showResults(objResults) {
 
-        this._preloader('hide');
-        this._zeroResultsBlock('hide');
+        /* Отображаем лоудер */
+        this._toggleVisibility(this._resultsContainerClass, 'hide');
+        this._toggleVisibility(this._zeroResultsClass, 'hide');
+        this._toggleVisibility(this._preloaderClass, 'show');
+
+
+        /* Удаляем предыдущие карточки статей */
         const articlesContainer = document.querySelector(`${this._articlesContainerClass}`);
-        articlesContainer.innerHTML = '';
+        articlesContainer.innerHTML = ''; // заодно удаляем слушатели событий с предыдущих краточек
 
-        this._preloader('show');
-
-        const zeroResultsBlock = document.querySelector(`${this._zeroResultsClass}`);
-
-
-        if (obj.status !== 'ok') {
-            return console.log('Принят объект со статусом не ок. Хотя вообще-то он даже прийти в эту функцию не должен был');
+        /* Ловим внезапную ошибку */
+        if (objResults.status !== 'ok') {
+            return console.log('Принят объект ответа от NewsAPI со статусом не "ок". Возможно, проблемы с fetch-запросом к NewsAPI. Это могут быть проблемы: с авторизацией, с адресом запроса, с заголовками, либо сломалось что-то другое.');        }
+        /* Если найдено ноль статей */
+        if (objResults.totalResults === 0) {
+            /* Отображаем сообщение "Ничего не найдено" */
+            this._toggleVisibility(this._preloaderClass, 'hide');
+            this._toggleVisibility(this._zeroResultsClass, 'show');
+            return console.log('По вашему запросу ничего не найдено. Попробуйте изменить запрос.');
         }
 
-        if (obj.totalResults === 0) {
-            this._preloader('hide');
-            this._zeroResultsBlock('show');
-            return console.log('Найдено ноль статей');
-        }
+        /* Если найдено >= 1 статьи */
 
-        console.log(`Найдёно ${obj.totalResults} статей`);
-
-        // сохраняем эти две штуки в отдельные переменные, т.к. в forEach this указывает на document
-
+        // сохраняем функцию создания карточки в отдельную переменную, т.к. внутри forEach this указывает на document
         const funcCreateCard = this._funcCreateCard;
 
-        // удаляет карточки из предыдущей поисковой выдачи
-
-
-        console.log(`Начинаем добавление карточек после очистки предыдущих результатов`);
-
         // берём массив со статьями и добавляем разметку каждой статьи в блок поисковой выдачи
-        obj.articles.forEach(function (article) {
+        objResults.articles.forEach(function (article) {
             articlesContainer.appendChild(funcCreateCard(article));
         });
-        this._preloader('hide');
 
-        console.log(`Завершено добавление результатов поиска на страницу`);
-    }
-
-    _setEventListeners() {
-        // обработчик нажатия на кнопку "больше статей"
+        /* Отображаем найденные статьи */
+        this._toggleVisibility(this._preloaderClass, 'hide');
+        this._toggleVisibility(this._resultsContainerClass, 'show');
     }
 }
-
-////////////////////////////////////////////////////////////////////////////////
-// принимает массив карточек
-// отрисовывает их на странице
-
-/*
-const objParams = {
-    articlesContainer: '.articles__container',
-    buttonShowMore: '.articles__show-more-button',
-}
-
-const resObj = {
-    "status": "ok",
-    "totalResults": 56,
-    "articles":
-        [
-            {
-                "source": {
-                    "id": null,
-                    "name": "Pikabu.ru"
-                },
-                "author": null,
-                "title": "Котята",
-                "description": "",
-                "url": "https://pikabu.ru/story/kotyata_7648649",
-                "urlToImage": null,
-                "publishedAt": "2020-08-13T12:07:36Z",
-                "content": null
-            },
-            {
-                "source": {
-                    "id": null,
-                    "name": "Pikabu.ru"
-                },
-                "author": null,
-                "title": "Котята",
-                "description": "5 дней назад на помойке были найдены 4 комочка . Весили они от 230 грамм до 400. Отмыты , отвоёваны от блох . Ребята славные , немного побаиваются но активно утром просят кушать и через раз ходят в лоток . Очень нужны для них хозяева ! Долго держать у себя не…",
-                "url": "https://pikabu.ru/story/kotyata_7674921",
-                "urlToImage": null,
-                "publishedAt": "2020-08-26T04:32:20Z",
-                "content": null
-            },
-        ]
-}
-
- */

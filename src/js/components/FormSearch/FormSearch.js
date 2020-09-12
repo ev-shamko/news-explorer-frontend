@@ -19,7 +19,6 @@ export default class FormSearch extends Form {
             this._searchFunc(keyword) // отправляет запрос на авторизацию на сервер
                 .then((resObj) => {
                     this._renderResults(resObj);
-                    console.log('Завершил работу newsCardList.showResults() в листенере formSearch');
                 })
                 .catch((err) => console.log(err));
         });
