@@ -14,8 +14,6 @@ import NewsApi from "../js/api/NewsApi";
 //const getAuthState = () => localStorage.getItem('token') && validator.isJWT(localStorage.getItem('token'));
 //console.log(getAuthState());
 
-/* Раньше здесь создавались newsCard и  newsCardList */
-
 
 const headerMenu = new HeaderMenu({
     buttonAuth: '.menu__auth-button',
@@ -60,8 +58,6 @@ const newsApi = new NewsApi();
 const newsCard = new NewsCard({
     funcSaveArticle: mainApi.createArticle,
 });
-
-// console.log(mainApi.createArticle);
 
 const newsCardList = new NewsCardList({
         articlesContainer: '.articles__container',
@@ -124,15 +120,26 @@ buttonAuth.addEventListener('click', () => {
         manageMenuVisibility();
     }
 });
-
+// mainApi._getUserData();
 
 /* При загрузке index.html отправляется запрос на сервер на users/me - даже если у пользователя нет куки авторизации */
 
 mainApi._getUserData()
     .then((objUserData) => {
-        console.log(objUserData);
-        headerMenu.resetHeaderMenu();
-        headerMenu.showButtonSavedArticles();
-        headerMenu.putUserNameInAuthBtn(objUserData.name);
+       if (objUserData.name) { // если в объекте ответа есть свойство name
+            console.log(`objUserData.name:`);
+            console.log(objUserData.name);
+            console.log(`Приводим сайт в залогиненный вид`);
+            localStorage.setItem('name', objUserData.name);
+            headerMenu.resetHeaderMenu(); // перерисует меню, чтобы убрать слушатель событий с кнопки авторизации (иначе при нажатии на неё вылезет попап для авторизации, а мы уже авторизованы)
+            headerMenu.showButtonSavedArticles(); // отобразит кнопку перехода к сохранённым статьям
+            headerMenu.putUserNameInAuthBtn(objUserData.name); // вставит имя пользователя в кнопку авторизации
+        }
+
+        if (objUserData.name === undefined) {
+            console.log(`При загрузке страницы не удалось получить данные пользователя от сервера. Возможно, вы не залогинились`);
+            localStorage.setItem('name', '');
+        }
     })
     .catch(err => console.log(err));
+

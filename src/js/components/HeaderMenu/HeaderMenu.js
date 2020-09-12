@@ -40,7 +40,6 @@ export default class HeaderMenu {
     // метод, отображающий кнопку сохранённых страниц
     _showButtonSavedArticles() {
         const btnSavedArticles = document.querySelector(this._classBtnSavedArticles);
-        console.log(btnSavedArticles);
         btnSavedArticles.classList.remove(this._btnVisibilityClass);
     }
 

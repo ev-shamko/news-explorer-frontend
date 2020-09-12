@@ -71,6 +71,7 @@ export default class MainApi {
     _signin(userData) {
         return fetch(this._urlSignin, {
             method: 'POST',
+            credentials: 'include', // обязательно! иначе не поставятся куки
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -83,9 +84,14 @@ export default class MainApi {
             .then(() => {
                 this._getUserData()
                     .then((obj) => {
+                        //if (obj) {
+                        //console.log(`Приводим сайт в залогиненный вид`);
+                        //console.log(`obj.name` + obj.name);
+                        localStorage.setItem('name', obj.name);
                         this._funcResetHeaderMenu(); // перерисует меню, чтобы убрать слушатель событий с кнопки авторизации (иначе при нажатии на неё вылезет попап для авторизации, а мы уже авторизованы)
                         this._funcShowButtonSavedArticles(); // отобразит кнопку перехода к сохранённым статьям
                         this._funcPutUserNameInAuthBtn(obj.name); // вставит имя пользователя в кнопку авторизации
+                        //}
                     })
             })
             .catch((err) => {
@@ -105,6 +111,7 @@ export default class MainApi {
 
 fetch('https://api.news-collection.space/signin', {
             method: 'POST',
+            credentials: 'include', // обязательно! иначе не поставятся куки
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -129,12 +136,6 @@ fetch('https://api.news-collection.space/signin', {
             credentials: 'include',
         })
             .then(res => res.json())
-            .then((result) => {
-                console.log(result);
-                console.log(result.name);
-                console.log(typeof (result.name));
-                return result;
-            })
             .catch((err) => {
                 console.log('Вы попытались получить данные о своём профиле, но произошла ошибка');
                 console.log(err);

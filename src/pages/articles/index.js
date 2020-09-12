@@ -2,6 +2,7 @@ import "../../css/articles.css";
 
 import MainApi from "../../js/api/MainApi";
 import HeaderMenu from "../../js/components/HeaderMenu/HeaderMenu";
+import Summary from "../../js/components/Summary/Summary";
 
 const headerMenu = new HeaderMenu({
     buttonAuth: '.menu__auth-button',
@@ -20,17 +21,33 @@ const mainApi = new MainApi({
     funcPutUserNameInAuthBtn: headerMenu.putUserNameInAuthBtn,
 });
 
+
 /* При загрузке страницы будет запрашиваться юзеринфо и перерисовываться меню в хэдере */
 
 mainApi._getUserData()
     .then((objUserData) => {
-        console.log(objUserData);
-        headerMenu.putUserNameInAuthBtn(objUserData.name);
+        if (objUserData.name) {  // если в объекте ответа есть свойство name
+            console.log(`Приводим сайт в залогиненный вид`);
+            console.log(objUserData.name);
+            localStorage.setItem('name', objUserData.name);
+            headerMenu.putUserNameInAuthBtn(objUserData.name);
 
-        /* Фикс! Делаем иконку логаута чёрной (в кнопке авторизации в хедэре). Нужно, потому что при перерисовке кнопки авторизации стандартно подгружается белая иконка */
-        document.querySelector('.menu__logout-icon').setAttribute('src', './images/logout-black.png');
+            /* Фикс! Делаем иконку логаута чёрной (в кнопке авторизации в хедэре). Нужно, потому что при перерисовке кнопки авторизации стандартно подгружается белая иконка */
+            document.querySelector('.menu__logout-icon').setAttribute('src', './images/logout-black.png');
+        }
+
+        if (objUserData.name === undefined) {
+            console.log(`При загрузке страницы не удалось получить данные пользователя от сервера. Возможно, вы не залогинились`);
+            localStorage.setItem('name', '');
+        }
     })
     .catch(err => console.log(err));
+
+
+const summary = new Summary({
+    userNameClass: '.summary__username',
+    numOfArticles: '.summary__amount',
+})
 
 /* Пока что открытие/закрытие мобильного меню в хедере реализовано нижеследующим кодом */
 
