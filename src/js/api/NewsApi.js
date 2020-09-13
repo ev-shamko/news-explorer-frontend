@@ -10,7 +10,6 @@ export default class NewsApi {
         }
 
         this.fetchNews = this._fetchNews.bind(this);
-        //this.processNewsResponce = this._processNewsResponce.bind(this);
     }
 
     //keyword - строка, минимум 2 символа

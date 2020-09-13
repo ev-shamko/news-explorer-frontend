@@ -8,7 +8,6 @@ export default class Summary {
 
     _setUserName() {
         if (localStorage.name !== '') { // 'undefined' именно строка
-            console.log('Найдено имя пользователя в localStorage');
             this._userName.textContent = localStorage.name;
         }
     }

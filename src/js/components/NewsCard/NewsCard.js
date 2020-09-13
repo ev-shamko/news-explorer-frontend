@@ -1,9 +1,11 @@
 export default class NewsCard {
     constructor(objParams) {
-        this._funcSendArticleToServer = objParams.funcSaveArticle;
+        this._funcActivateFlagButton = objParams.funcForFlagButton; // для index.html сохраняем карточку в бд, для arcticles.html удаляем карточку из бд
 
         this.сreateFoundArticle = this._сreateFoundArticle.bind(this);
+        this.сreateSavedArticle = this._сreateSavedArticle.bind(this);
         this.saveArticle = this._saveArticle.bind(this);
+        this.deleteArticle = this._deleteArticle.bind(this);
     }
 
     /* принимает объект карточки от NewsAPI
@@ -50,7 +52,7 @@ export default class NewsCard {
         const cardElem = document.createElement('div');
         cardElem.classList.add('card');
 
-        const cardInnerMarkup = `
+        const foundCardInnerMarkup = `
               <div class="card__illustration"
                    style="">
                 <div class="card__button-container">
@@ -72,7 +74,7 @@ export default class NewsCard {
                 </div>
               </div>`;
 
-        cardElem.innerHTML = cardInnerMarkup;
+        cardElem.innerHTML = foundCardInnerMarkup;
 
         // это лучше в отдельный метод
         cardElem.querySelector('.card__illustration').setAttribute('style', `background-image: url('${articleInfo.imgUrl}')`);
@@ -86,11 +88,77 @@ export default class NewsCard {
 
         // seteventlisteners
 
-        const sendArticleDataToServer = this.saveArticle; // в addEventListener this будет теряться
-
+        const sendArticleDataToServer = this.saveArticle; // иначе в addEventListener this будет теряться
         cardElem.querySelector('.card__button').addEventListener('click', sendArticleDataToServer);
 
-        console.log('Возвращаю разметку');
+        return cardElem;
+    }
+
+    _сreateSavedArticle(rawArticle) {
+        const articleInfo = {};
+
+        articleInfo.imgUrl = rawArticle.image;
+        articleInfo.date = rawArticle.date;
+        articleInfo.title = rawArticle.title;
+        articleInfo.description = rawArticle.text;
+        articleInfo.source = rawArticle.source;
+        articleInfo.sourceLink = rawArticle.link;
+        articleInfo.publishedAt = rawArticle.date;
+        articleInfo.id = rawArticle._id;
+        articleInfo.keyword = rawArticle.keyword;
+
+        // необходимо добавить проверку на залогиненность. Если пользователь авторизован, сообщение "Войдите, чтобы сохранять статьи" меняется
+
+        const cardElem = document.createElement('div');
+        cardElem.classList.add('card');
+
+        const savedCardInnerMarkup = `
+              <div class="card__illustration"
+                   style="">
+                <div class="card__button-container">
+                  <button class="card__button">
+                    <img class="card__button-icon" src="./images/delete-button.svg" alt="Кнопка для удаления статьи">
+                  </button>
+                  <div class="card__message-container card__message-container_message">
+                    <span class="card__message">Убрать из сохранённых</span>
+                  </div>
+                  <div class="card__message-container card__message-container_keyword">
+                    <span class="card__keyword"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card__content">
+                <div class="card__article">
+                  <p class="card__date" publishedat="">2 августа, 2019</p>
+                  <h2 class="card__header"></h2>
+                  <p class="card__text"></p>                  
+                  <p class="card__source"><a class="card__source-link" href=""></a></p>                  
+                </div>
+              </div>`;
+
+        cardElem.innerHTML = savedCardInnerMarkup;
+
+
+        // это лучше в отдельный метод
+        cardElem.querySelector('.card__header').textContent = articleInfo.title;
+        cardElem.querySelector('.card__text').textContent = articleInfo.description;
+        cardElem.querySelector('.card__illustration').setAttribute('style', `background-image: url('${articleInfo.imgUrl}')`);
+        cardElem.querySelector('.card__keyword').textContent = articleInfo.keyword;
+
+        cardElem.querySelector('.card__source-link').setAttribute('href', articleInfo.sourceLink);
+        cardElem.querySelector('.card__source-link').textContent = articleInfo.source;
+
+        cardElem.querySelector('.card__date').setAttribute('publishedAt', articleInfo.date); //${conversionDate(date, MONTHS).textDate}
+        cardElem.querySelector('.card__date').textContent = articleInfo.date.slice(0,10);
+
+        // добавить id
+        cardElem.setAttribute('id', articleInfo.id);
+
+        // seteventlisteners
+
+        const deleteArticle = this.deleteArticle; // иначе в addEventListener this будет теряться
+        cardElem.querySelector('.card__button').addEventListener('click', deleteArticle);
+
         return cardElem;
     }
 
@@ -116,9 +184,23 @@ export default class NewsCard {
         const cardDataObj = this._gatherCardData(event.target);
 
         // отправляет на мой сервер объект с данными карточки
-        this._funcSendArticleToServer(cardDataObj);
+        this._funcActivateFlagButton(cardDataObj);
 
         // если сохранилось успешно, то нужно пересоздать кнопку сохранения
         // и изменить надпись кнопки
+    }
+
+    _deleteArticle(event) {
+        const cardElem = event.target.closest('.card');
+        const cardId = cardElem.getAttribute('id');
+
+        console.log(`Вы пытаетесь удалить карточку со следующим _id:`);
+        console.log(cardId);
+
+        // при создании класса на articles.html в метод _funcActivateFlagButton передаётся запрос на удаление статьи по id из mainApi
+        // предполагается, что на articles.html нам нужна только эта функция
+        this._funcActivateFlagButton(cardId, cardElem);
+
+        // затем нужно удалить элемент карточки
     }
 }

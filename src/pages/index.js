@@ -56,7 +56,7 @@ const mainApi = new MainApi({
 const newsApi = new NewsApi();
 
 const newsCard = new NewsCard({
-    funcSaveArticle: mainApi.createArticle,
+    funcForFlagButton: mainApi.createArticle,
 });
 
 const newsCardList = new NewsCardList({
@@ -126,18 +126,18 @@ buttonAuth.addEventListener('click', () => {
 
 mainApi._getUserData()
     .then((objUserData) => {
-       if (objUserData.name) { // если в объекте ответа есть свойство name
-            console.log(`objUserData.name:`);
-            console.log(objUserData.name);
-            console.log(`Приводим сайт в залогиненный вид`);
+        if (objUserData.name) { // если в объекте ответа есть свойство name
             localStorage.setItem('name', objUserData.name);
             headerMenu.resetHeaderMenu(); // перерисует меню, чтобы убрать слушатель событий с кнопки авторизации (иначе при нажатии на неё вылезет попап для авторизации, а мы уже авторизованы)
             headerMenu.showButtonSavedArticles(); // отобразит кнопку перехода к сохранённым статьям
             headerMenu.putUserNameInAuthBtn(objUserData.name); // вставит имя пользователя в кнопку авторизации
+
+            console.log(`Вы авторизованы. Здравствуйте, ${objUserData.name}`);
         }
 
+        // если нет корректного jwt-токена, то сайт не примет залогиненный вид
         if (objUserData.name === undefined) {
-            console.log(`При загрузке страницы не удалось получить данные пользователя от сервера. Возможно, вы не залогинились`);
+            console.log(`При загрузке страницы не удалось получить данные пользователя от сервера. Возможно, вы не залогинились. Пожалуйста, войдите или зарегистрируйтесь.`);
             localStorage.setItem('name', '');
         }
     })

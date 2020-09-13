@@ -5,6 +5,7 @@
 @import url(../blocks/articles/articles.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/circle-preloader/circle-preloader.css);
 body {
     background: #ffffff;
     margin: 0px;

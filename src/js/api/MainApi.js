@@ -6,7 +6,7 @@ export default class MainApi {
         this._urlSignup = this._baseUrl + '/signup'; // 'https://api.news-collection.space/signup'
         this._urlSignin = this._baseUrl + '/signin'; // 'https://api.news-collection.space/signin'
         this._urlUsersMe = this._baseUrl + '/users/me'; // 'https://api.news-collection.space/users/me'
-        this._urlCreateArticle = this._baseUrl + '/articles';// https://api.news-collection.space/articles
+        this._urlArticles = this._baseUrl + '/articles';// https://api.news-collection.space/articles
 
         this._funcAfterRegShowMessage = objParams.funcAfterRegShowMessage;
         this._funcCloseLoginPopup = objParams.funcCloseLoginPopup;
@@ -17,8 +17,8 @@ export default class MainApi {
         this.signup = this._signup.bind(this);
         this.signin = this._signin.bind(this);
         this.createArticle = this._createArticle.bind(this);
-        //console.log(this.createArticle);
-
+        this.deleteArticle = this._deleteArticle.bind(this);
+        this.getArticles = this._getArticles.bind(this);
     }
 
     test() {
@@ -142,31 +142,8 @@ fetch('https://api.news-collection.space/signin', {
             });
     }
 
-
-    //Что ещё нужно написать:
-
-// getArticles
-// createArticle
-
     _createArticle(obj) {
-
-        /*
-        const articleDate = {
-            title: '',
-            text: '',
-            date: '',
-            source: '',
-            link: '',
-            image: '',
-            keyword: localStorage.getItem('keyword'),
-        }
-
-         */
-
-        console.log('Вы пытаетесь сохранить статью:');
-        console.log(obj);
-
-        fetch(this._urlCreateArticle, {
+        fetch(this._urlArticles, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -175,41 +152,73 @@ fetch('https://api.news-collection.space/signin', {
             body: JSON.stringify(obj),
         })
             .then(res => res.json())
+            .then((res) => {
+                console.log(`Вы успешно сохранили статью в базе данных:`);
+                console.log(res);
+            })
             .catch((err) => {
-                console.log('Проблема при попытке сохранения статьи');
+                console.log('Возникла ошибка при попытке сохранить статью');
                 console.log(err);
             });
     }
 
-    /*
-    Пример объекта для _createArticle()
-    {
-        title: '',
-        text: '',
-        date: '',
-        source: '',
-        link: '',
-        image: '',
-        keyword: '',
+    _deleteArticle(id, cardElem) {
+        fetch(`${this._urlArticles}/${id}`, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res => res.json())
+            .then((res) => {
+                cardElem.remove();
+                console.log(`Вы успешно удалили статью из базы данных и с веб-страницы.`);
+                return res;
+            })
+            .catch((err) => {
+                console.log('Возникла ошибка при попытке удаления статьи');
+                console.log(err);
+            });
+
+
     }
 
-
-     */
-
     /*
+    Пример объекта для _createArticle()
 
-  title: 'String',
-  text: 'description',
-  *** - date: publishedAt - type: Date,
-  source: 'Name of Website',
-  link: 'url', // ! это поле можно сделать уникальным потом
-  image: 'link img',
-  *** - keyword: 'string', // minlength: 2
-  owner: 'owner id',
-
+{
+    "title": "Article title",
+    "text": "Content of the article",
+    "date": "2020-08-16T03:41:29.071Z",
+    "source": "http://www.some.cite",
+    "link": "http://www.some.cite/news.jpg",
+    "image": "http://www.some.cite/news.jpg",
+    "keyword": "keyword"
+}
      */
 
+    _getArticles() {
+        return fetch(this._urlArticles, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res => res.json())
+            .then((result) => {
+                console.log(`Вот список всех ваших статей`);
+                console.log(result.data); // res.data - в этом свойстве лежит массив объектов статей
+                return result.data;
+            })
+            .catch((err) => {
+                console.log('Проблема при попытке получить список сохранённых статей');
+                console.log(err);
+            });
+    }
 
+    //Что ещё нужно написать:
 // removeArticle
 
 }
