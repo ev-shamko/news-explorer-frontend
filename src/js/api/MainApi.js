@@ -153,7 +153,7 @@ fetch('https://api.news-collection.space/signin', {
         })
             .then(res => res.json())
             .then((res) => {
-                console.log(`Вы успешно сохранили статью в базе данных:`);
+                console.log(`Вы сделали запрос на сохранение статьи в базу данных:`);
                 console.log(res);
             })
             .catch((err) => {

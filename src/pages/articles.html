@@ -37,13 +37,40 @@
         <div class="summary__content">
           <h2 class="summary__header">Сохранённые статьи</h2>
           <p class="summary__saved-articles"><span class="summary__username">Здравствуйте</span>,&nbspу&nbspвас&nbsp<span class="summary__amount">0</span> сохранённых статей</p>
-          <p class="summary__all-keywords">По ключевым словам: <span class="summary__keyword">Природа,</span> <span
+          <p style="display: none" class="summary__all-keywords">По ключевым словам: <span class="summary__keyword">Природа,</span> <span
                   class="summary__keyword">Тайга</span> и <span class="summary__keyword">2 другим</span></p>
         </div>
       </section>
       <section class="articles articles_displayed articles_saved">
         <div class="articles__content">
           <div class="articles__container">
+            <div class="card">
+              <div class="card__illustration"
+                   style="background-image: url('<%= require(`../images/saved-card-1.jpg`) %>')">
+                <div class="card__button-container">
+                  <button class="card__button">
+                    <img class="card__button-icon" src="<%=require('../images/delete-button.svg')%>"
+                         alt="Кнопка для выхода из сервиса">
+                  </button>
+                  <div class="card__message-container card__message-container_message">
+                    <span class="card__message">Убрать из сохранённых</span>
+                  </div>
+                  <div class="card__message-container card__message-container_keyword">
+                    <span class="card__keyword">Природа</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card__content">
+                <div class="card__article">
+                  <p class="card__date">2 августа, 2019</p>
+                  <h2 class="card__header">Лесные огоньки: история одной фотографии</h2>
+                  <p class="card__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы
+                    запечатлеть ускользающую красоту одного
+                    из местных чудес природы.</p>
+                  <p class="card__source">Афиша</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- Прелоудер -->
