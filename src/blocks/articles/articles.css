@@ -3,9 +3,11 @@
 @import url(__container/articles__container.css);
 @import url(__show-more-button/articles__show-more-button.css);
 @import url(_saved/articles_saved.css);
+@import url(_displayed/articles_displayed.css);
 .articles {
     background: #F5F6F7;
     padding: 80px 40px;
+    display: none;
 }
 
 @media screen and (max-width: 1200px) {

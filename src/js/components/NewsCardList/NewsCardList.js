@@ -31,6 +31,7 @@ export default class NewsCardList {
     _showResults(arrResults) {
 
         /* Отображаем лоудер */
+        this._toggleVisibility('.articles', 'show');
         this._toggleVisibility(this._resultsContainerClass, 'hide');
         this._toggleVisibility(this._zeroResultsClass, 'hide');
         this._toggleVisibility(this._preloaderClass, 'show');
