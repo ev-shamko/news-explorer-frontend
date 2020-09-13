@@ -1,5 +1,4 @@
-// 4697cc8ce0e443c6b5027c6921de9a61 - my api key
-// https://nomoreparties.co/news/v2/everything?q=день&apiKey=4697cc8ce0e443c6b5027c6921de9a61
+import { GetSpecificDate } from '../utils/GetSpecificDate'
 
 export default class NewsApi {
     constructor() {
@@ -14,7 +13,7 @@ export default class NewsApi {
 
     //keyword - строка, минимум 2 символа
     _fetchNews(keyword) {
-        return fetch(`${this._baseUrl}everything?q=${keyword}&apiKey=${this._apiKey}`, {
+        return fetch(`${this._baseUrl}everything?q=${keyword}&from=${GetSpecificDate(7)}&to=${GetSpecificDate(0)}&apiKey=${this._apiKey}`, {
             headers: this._headers,
         })
             .then((res) => res.json())
