@@ -6,7 +6,7 @@ export default class HeaderMenu {
         this._buttonAuthClass = objParams.buttonAuth;
 
         // константа разметки внутри кнопки авторизации (строка)
-        // <span class="menu__username">Выйти</span><img class="menu__logout-icon" src="<%=require('../images/logout-white.png')%>" alt="Кнопка для выхода из сервиса">
+        // <span class="menu__username">Выйти</span><img class="menu__logout-icon" src="<%=require('./images/logout-white.png')%>" alt="Кнопка для выхода из сервиса">
         this._authButtonInnerMarkup = authButtonInnerMarkup;
 
 

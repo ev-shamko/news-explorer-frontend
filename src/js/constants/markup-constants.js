@@ -1,4 +1,4 @@
-export const authButtonInnerMarkup = `<span class="menu__username">Выйти</span><img class="menu__logout-icon" src="../images/logout-white.png" alt="Кнопка для выхода из сервиса">`;
+export const authButtonInnerMarkup = `<span class="menu__username">Выйти</span><img class="menu__logout-icon" src="./images/logout-white.png" alt="Кнопка для выхода из сервиса">`;
 
 export const headerMenuInnerMarkup = `          <ul class="menu__pages-container">
             <li class="menu__page menu__page_current"><a href="./index.html">Главная</a></li>
