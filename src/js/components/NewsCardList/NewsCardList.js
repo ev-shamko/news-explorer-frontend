@@ -38,7 +38,10 @@ export default class NewsCardList {
         this._toggleVisibility('.articles', 'show');
         this._toggleVisibility(this._resultsContainerClass, 'hide');
         this._toggleVisibility(this._zeroResultsClass, 'hide');
-        console.log('показываем лоудер');
+        console.log('Показываем лоудер, вот текущее время:');
+
+        const nowDate = new Date;
+        console.log(`${nowDate.getMinutes()} min, ${nowDate.getSeconds()}sec, ${nowDate.getMilliseconds()} ms`);
         this._toggleVisibility(this._preloaderClass, 'show');
 
 
@@ -69,8 +72,11 @@ export default class NewsCardList {
         });
 
         /* Отображаем найденные статьи */
-        console.log('прячем лоудер');
+        console.log('Прячем лоудер, вот текущее время:');
+        const otherDate = new Date;
+        console.log(`${otherDate.getMinutes()} min, ${otherDate.getSeconds()}sec, ${otherDate.getMilliseconds()} ms`);
         this._toggleVisibility(this._preloaderClass, 'hide');
+
         this._toggleVisibility(this._resultsContainerClass, 'show');
         this._showMoreCards();
     }
