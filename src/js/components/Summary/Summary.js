@@ -57,10 +57,6 @@ export default class Summary {
         // собираем массив уникальных ключевых слов (т.к. в arrAllKeywords могут встречаться повторения)
         const uniqKeywords = Array.from(new Set(arrAllKeywords));
 
-        console.log(`uniqKeywords`);
-        console.log(uniqKeywords);
-
-
         if (uniqKeywords.length === 0) {
             keywordsParagraph.innerHTML =
                 `Нет ключевых слов`;

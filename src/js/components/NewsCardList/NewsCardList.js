@@ -38,6 +38,7 @@ export default class NewsCardList {
         this._toggleVisibility('.articles', 'show');
         this._toggleVisibility(this._resultsContainerClass, 'hide');
         this._toggleVisibility(this._zeroResultsClass, 'hide');
+        console.log('показываем лоудер');
         this._toggleVisibility(this._preloaderClass, 'show');
 
 
@@ -68,6 +69,7 @@ export default class NewsCardList {
         });
 
         /* Отображаем найденные статьи */
+        console.log('прячем лоудер');
         this._toggleVisibility(this._preloaderClass, 'hide');
         this._toggleVisibility(this._resultsContainerClass, 'show');
         this._showMoreCards();
@@ -135,7 +137,7 @@ export default class NewsCardList {
     }
 
     _setEventListeners() {
-        // на articles.html нет этой кнопки
+        // на articles.html нет этой кнопки. Условие нужно, чтобы скрипт не падал
         if (this._buttonShowMore) {
             this._buttonShowMore.addEventListener('click', this.showMoreCards);
         }
