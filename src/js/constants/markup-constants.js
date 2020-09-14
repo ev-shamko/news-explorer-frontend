@@ -60,4 +60,4 @@ export const savedCardInnerMarkup = `
                   <p class="card__text"></p>                  
                   <p class="card__source"><a class="card__source-link" href=""></a></p>                  
                 </div>
-              </div>`
+              </div>`;

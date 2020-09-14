@@ -91,5 +91,7 @@ export default class NewsCardList {
         /* Отображаем найденные статьи */
         this._toggleVisibility(this._preloaderClass, 'hide');
         this._toggleVisibility(this._resultsContainerClass, 'show');
+
+        return (arrResult);
     }
 }

@@ -13,6 +13,8 @@ export default class MainApi {
         this._funcShowButtonSavedArticles = objParams.funcShowButtonSavedArticles;
         this._funcResetHeaderMenu = objParams.funcResetHeaderMenu;
         this._funcPutUserNameInAuthBtn = objParams.funcPutUserNameInAuthBtn;
+        this._funcSetNumOfSavedArticles = objParams.funcSetNumOfSavedArticles;
+        this._funcSetInfoAboutKeywords = objParams.funcSetInfoAboutKeywords;
 
         this.signup = this._signup.bind(this);
         this.signin = this._signin.bind(this);
@@ -174,6 +176,8 @@ fetch('https://api.news-collection.space/signin', {
             .then((res) => {
                 cardElem.remove();
                 console.log(`Вы успешно удалили статью из базы данных и с веб-страницы.`);
+                this._funcSetNumOfSavedArticles();
+                this._funcSetInfoAboutKeywords();
                 return res;
             })
             .catch((err) => {

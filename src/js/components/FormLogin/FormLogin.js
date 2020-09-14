@@ -12,8 +12,6 @@ export default class FormLogin extends Form {
         this._form.addEventListener('submit', (event) => {
             event.preventDefault(); // чтобы страница не перезагрузилась
 
-            console.log(`Сработал листенер формы авторизации`);
-
             const objLoginInfo = {
                 "email": this._form.email.value,
                 "password": this._form.password.value,

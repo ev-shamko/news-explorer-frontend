@@ -15,6 +15,12 @@ const headerMenu = new HeaderMenu({
     btnVisibilityClass: 'menu__page_hidden',
 });
 
+const summary = new Summary({
+    userNameClass: '.summary__username',
+    numOfArticles: '.summary__amount',
+    keywordsParagraphClass: '.summary__all-keywords',
+});
+
 const mainApi = new MainApi({
     baseUrl: 'https://api.news-collection.space',
     funcAfterRegShowMessage: false,
@@ -22,6 +28,8 @@ const mainApi = new MainApi({
     funcShowButtonSavedArticles: false,
     funcResetHeaderMenu: headerMenu.resetHeaderMenu,
     funcPutUserNameInAuthBtn: headerMenu.putUserNameInAuthBtn,
+    funcSetNumOfSavedArticles: summary.setNumOfSavedArticles,
+    funcSetInfoAboutKeywords: summary.setInfoAboutKeywords,
 });
 
 
@@ -39,18 +47,14 @@ mainApi._getUserData()
         }
 
         if (objUserData.name === undefined) {
-            console.log(`При загрузке страницы не удалось получить данные пользователя от сервера. Возможно, вы не залогинились. Вы будете перенаправлены на главную страницу.`);
             localStorage.setItem('name', '');
+            console.log(`При загрузке страницы не удалось получить данные пользователя от сервера. Возможно, вы не залогинились. Вы будете перенаправлены на главную страницу.`);
             document.location.href = './index.html';
         }
     })
     .catch(err => console.log(err));
 
 
-const summary = new Summary({
-    userNameClass: '.summary__username',
-    numOfArticles: '.summary__amount',
-})
 
 /* Пока что открытие/закрытие мобильного меню в хедере реализовано нижеследующим кодом */
 
@@ -80,10 +84,25 @@ const newsCardList = new NewsCardList({
     newsCard.сreateSavedArticle,
 );
 
-// console.log(mainApi.getArticles());
 
 mainApi.getArticles()
     .then((res) => {
-        newsCardList.showSavedArticles(res);
+        newsCardList.showSavedArticles(res); // метод добавит на страницу карточки сохранённых статей и вернёт массив этих статей
+
+        summary.setNumOfSavedArticles();
+        summary.setUserName();
+        summary.setInfoAboutKeywords();
+
+        /*
+        const arrOfSavedArticles = newsCardList.showSavedArticles(res);
+        const amountOfKeywords = arrOfSavedArticles.length;
+        const arrOfKeywords = [];
+        arrOfSavedArticles.forEach((cardObj) => {
+            arrOfKeywords.push(cardObj.keyword);
+        });
+        console.log(arrOfKeywords);
+        */
+
     })
     .catch(err => console.log(err));
+
