@@ -1,0 +1,14 @@
+.zero-results__message {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+
+
+    text-align: center;
+    max-width: 356px;
+    align-self: center;
+
+    color: #B6BCBF;
+}

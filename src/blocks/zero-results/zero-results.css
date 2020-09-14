@@ -1,0 +1,10 @@
+@import url(_displayed/zero-results_displayed.css);
+@import url(__icon/zero-results__icon.css);
+@import url(__header/zero-results__header.css);
+@import url(__message/zero-results__message.css);
+
+.zero-results {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}

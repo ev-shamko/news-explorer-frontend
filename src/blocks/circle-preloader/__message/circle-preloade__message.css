@@ -1,0 +1,12 @@
+.circle-preloader__message {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+
+    text-align: center;
+    margin-top: 24px;
+
+    color: #B6BCBF;
+}

@@ -2,6 +2,7 @@
 @import url(_footer/menu__page_footer.css);
 @import url(_black/menu__page_black.css);
 @import url(_current-black/menu__page_current-black.css);
+@import url(_hidden/menu__page_hidden.css);
 .menu__page {
     list-style: none;
     margin: 0 0 0 34px;

@@ -8,8 +8,10 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/form/form.css);
+@import url(../blocks/circle-preloader/circle-preloader.css);
+@import url(../blocks/zero-results/zero-results.css);
 body {
-    background-color: bisque;
+    background-color: white;
     margin: 0px;
 }
 

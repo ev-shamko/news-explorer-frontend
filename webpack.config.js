@@ -9,8 +9,8 @@ const isDev = process.env.NODE_ENV === 'development'; // добавляет ст
 
 module.exports = {
     entry: {
-        main: './src/js/index.js',
-        articles: './src/js/articles/index.js'
+        main: './src/pages/index.js',
+        articles: './src/pages/articles/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -91,7 +91,7 @@ module.exports = {
             inject: false,
             template: './src/pages/articles.html', //
             filename: 'articles.html',
-            chunks: ['articles'], // для entry point articles: './src/js/articles/index.js'
+            chunks: ['articles'], // для entry point articles: './src/pages/articles/index.js'
         }),
         new webpack.DefinePlugin({ // прокидываем в наше приложение эту переменную
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)

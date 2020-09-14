@@ -1,4 +1,7 @@
+@import url(_displayed/summary__all-keywords_displayed.css);
 .summary__all-keywords {
+    opacity: 0;
+
     margin: 0 auto 0 0;
 
     font-family: Roboto;
