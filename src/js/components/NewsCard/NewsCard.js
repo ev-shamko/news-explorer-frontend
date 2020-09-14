@@ -58,6 +58,7 @@ export default class NewsCard {
 
         const cardElem = document.createElement('div');
         cardElem.classList.add('card');
+        cardElem.classList.add('card_hidden');
 
         cardElem.innerHTML = foundCardInnerMarkup;
 

@@ -22,7 +22,8 @@
         <nav class="header__menu-container menu">
           <ul class="menu__pages-container">
             <li class="menu__page menu__page_current"><a href="./index.html">Главная</a></li>
-            <li class="menu__page menu__page_saved-art menu__page_hidden"><a href="./articles.html">Сохранённые статьи</a></li>
+            <li class="menu__page menu__page_saved-art menu__page_hidden"><a href="./articles.html">Сохранённые
+              статьи</a></li>
           </ul>
           <button class="menu__auth-button">
             <span class="menu__username">Войти</span>
@@ -136,17 +137,19 @@
               </div>
             </div>
 
+          </div>
           <button class="articles__show-more-button">Показать ещё</button>
         </div>
+
         <!-- Прелоудер -->
-        </div>
         <div class="circle-preloader">
           <i class="circle-preloader__animation"></i>
           <p class="circle-preloader__message">Идет поиск новостей...</p>
         </div>
         <!-- Блок с сообщением: "Ничего не найдено" -->
         <div class="zero-results">
-          <img class="zero-results__icon" src="<%= require(`../images/not-found.png`) %>" alt="Иконка грустной лупы"></img>
+          <img class="zero-results__icon" src="<%= require(`../images/not-found.png`) %>"
+               alt="Иконка грустной лупы"></img>
           <h4 class="zero-results__header">Ничего не найдено</h4>
           <p class="zero-results__message">К сожалению, по вашему запросу
             ничего не найдено.</p>

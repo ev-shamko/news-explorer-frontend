@@ -35,7 +35,7 @@ const mainApi = new MainApi({
 
 /* При загрузке страницы будет запрашиваться юзеринфо и перерисовываться меню в хэдере */
 
-mainApi._getUserData()
+mainApi.getUserData()
     .then((objUserData) => {
         if (objUserData.name) {  // если в объекте ответа есть свойство name
             localStorage.setItem('name', objUserData.name);
@@ -79,6 +79,7 @@ const newsCardList = new NewsCardList({
         buttonShowMore: undefined,
         preloaderClass: '.circle-preloader',
         zeroResultsClass: undefined,
+        cardHiddenClass: undefined,
     },
     newsCard.сreateFoundArticle,
     newsCard.сreateSavedArticle,

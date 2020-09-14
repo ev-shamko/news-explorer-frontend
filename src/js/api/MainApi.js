@@ -21,6 +21,7 @@ export default class MainApi {
         this.createArticle = this._createArticle.bind(this);
         this.deleteArticle = this._deleteArticle.bind(this);
         this.getArticles = this._getArticles.bind(this);
+        this.getUserData = this._getUserData.bind(this);
     }
 
     test() {

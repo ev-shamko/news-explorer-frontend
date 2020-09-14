@@ -12,6 +12,8 @@
     column-gap: 16px;
     row-gap: 16px;
     justify-content: center;
+
+    transition: all .8s ease-in;
 }
 
 @media screen and (max-width: 1232px) {

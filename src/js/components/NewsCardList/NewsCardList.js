@@ -2,15 +2,19 @@ export default class NewsCardList {
     constructor(objParams, funcCreateCard, funcсreateSavedArticle) {
         this._articlesContainerClass = objParams.articlesContainer;
         this._resultsContainerClass = objParams.resultsContainer;
-        // this._buttonShowMore = document.querySelector(`${objParams.buttonShowMoreer}`);
         this._preloaderClass = objParams.preloaderClass;
         this._zeroResultsClass = objParams.zeroResultsClass;
+        this._cardHiddenClass = objParams.cardHiddenClass;
+        this._buttonShowMore = document.querySelector(`${objParams.buttonShowMore}`);
 
         this._funcCreateCard = funcCreateCard;
         this._funcCreateSavedCard = funcсreateSavedArticle;
 
-        this.showResults = this._showResults.bind(this);
+        this.insertResults = this._insertResults.bind(this);
         this.showSavedArticles = this._showSavedArticles.bind(this);
+        this.showMoreCards = this._showMoreCards.bind(this);
+
+        this._setEventListeners();
     }
 
     // этот метод скрывает/отображает block (строка: селектор блока с точкой) в зависимости от значения action: ('show', 'hide')
@@ -28,7 +32,7 @@ export default class NewsCardList {
     }
 
     // принимает массив объектов статей от NewsAPI
-    _showResults(arrResults) {
+    _insertResults(arrResults) {
 
         /* Отображаем лоудер */
         this._toggleVisibility('.articles', 'show');
@@ -66,6 +70,41 @@ export default class NewsCardList {
         /* Отображаем найденные статьи */
         this._toggleVisibility(this._preloaderClass, 'hide');
         this._toggleVisibility(this._resultsContainerClass, 'show');
+        this._showMoreCards();
+    }
+
+    // функция отображает больше карточек новостей
+    // переиспользуется в качестве коллбэка для кнопки "показать ещё"
+    // если мы хотим, чтобы увеличение контейнера с карточками было анимировано, нужно переписать метод:
+    // нужно будет изменять min-height контейнера жёстко, + overflow: hidden + transition и чтобы карточки всегда отображались
+    _showMoreCards() {
+        const arrHiddenCards = document.querySelectorAll(this._cardHiddenClass);
+        const classCardHidden = this._cardHiddenClass.slice(1); // убираем точку в начале названия класса
+        const classButtonHidden = 'articles__show-more-button_hidden';
+
+        switch (arrHiddenCards.length) {
+            case 0:
+                this._buttonShowMore.classList.add(classButtonHidden);
+                break;
+            case 1:
+            case 2:
+                arrHiddenCards.forEach((element) => {
+                    element.classList.remove(classCardHidden);
+                })
+                this._buttonShowMore.classList.add(classButtonHidden);
+                break;
+            case 3:
+                for (let i = 0; i < 3; i++) {
+                    arrHiddenCards[i].classList.remove(classCardHidden);
+                }
+                this._buttonShowMore.classList.add(classButtonHidden);
+                break;
+            default:
+                for (let i = 0; i < 3; i++) {
+                    arrHiddenCards[i].classList.remove(classCardHidden);
+                }
+                this._buttonShowMore.classList.remove(classButtonHidden);
+        }
     }
 
     _showSavedArticles(arrResult) {
@@ -93,5 +132,12 @@ export default class NewsCardList {
         this._toggleVisibility(this._resultsContainerClass, 'show');
 
         return (arrResult);
+    }
+
+    _setEventListeners() {
+        // на articles.html нет этой кнопки
+        if (this._buttonShowMore) {
+            this._buttonShowMore.addEventListener('click', this.showMoreCards);
+        }
     }
 }

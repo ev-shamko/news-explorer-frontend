@@ -65,6 +65,7 @@ const newsCardList = new NewsCardList({
         buttonShowMore: '.articles__show-more-button',
         preloaderClass: '.circle-preloader',
         zeroResultsClass: '.zero-results',
+        cardHiddenClass: '.card_hidden',
     },
     newsCard.сreateFoundArticle,
 );
@@ -92,7 +93,7 @@ const formSearch = new FormSearch(
         inputsClass: '.search__input',
     },
     newsApi.fetchNews,
-    newsCardList.showResults,
+    newsCardList.insertResults,
 );
 
 const menuOpenButton = document.querySelector('.header__menu-button');
