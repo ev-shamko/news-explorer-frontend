@@ -20,8 +20,24 @@ export default class Summary {
     /* Отображаем количество сохранённых статей */
     _setNumOfSavedArticles() {
         const allArticlesNodeList = document.querySelectorAll('.card');
+        const articleWorld = document.querySelector('.summary__article-declension'); // Слово "статей" в заголовке, его нужно склонять
+
         const amountOfCards = allArticlesNodeList.length;
         this._numOfArticles.textContent = amountOfCards;
+
+        /* Склоняем слово "статей" в зависимости от количества сохранённых статей */
+
+        if (amountOfCards === 0 || amountOfCards >= 5) {
+            articleWorld.textContent = "статей";
+        }
+
+        if (amountOfCards === 1) {
+            articleWorld.textContent = "статья";
+        }
+
+        if (amountOfCards >= 2 && amountOfCards <= 4) {
+            articleWorld.textContent = "статьи";
+        }
     }
 
     /* Отображаем информацию о ключевых словах сохранённых статей */
@@ -29,6 +45,8 @@ export default class Summary {
         const keywordsParagraph = document.querySelector(this._keywordsParagraphClass);
         const visibilityClass = (this._keywordsParagraphClass + '_displayed').slice(1); // этот класс делает параграфу opacity: 1
         const allKeywords = document.querySelectorAll('.card__keyword');
+
+
         const arrAllKeywords = [];
 
 
@@ -58,8 +76,6 @@ export default class Summary {
         }
 
         if (uniqKeywords.length === 2) {
-            console.log(`Два ключевых слова`);
-
             keywordsParagraph.innerHTML =
                 `По ключевым словам: <span class="summary__keyword">${uniqKeywords[0]}</span> и <span
                   class="summary__keyword">${uniqKeywords[1]}</span>`;
